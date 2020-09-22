@@ -37,6 +37,8 @@ The little box at the end is where you type your commands. This tells the comput
                             --------*****----------
     2. Before we commit or push, we have to save locally in the computer, and tell the computer that we've done so. So in your file, make a save (either through clicking File in the toolbar and selecting save, or using the shortcut control+s).
 
+    Also, before we push, make sure we pull (step 5) so that everything is up to date.
+
     After you've saved, click in the little box at the end of the file path in the terminal and type:
 
     git add .  
@@ -71,5 +73,5 @@ This uploads your work to the shared repository, which we can then update and sh
     git pull
 
     And it should update all your files with everyone else in the groups work. Again, if this throws an error pop it in the chat and we can workshop :)
-    
+
 
