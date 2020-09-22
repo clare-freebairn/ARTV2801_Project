@@ -24,7 +24,15 @@ clare@clare-desktop:~/Documents/UNI/ARTV2801/ARTV2801_Projects$ []
 
 The little box at the end is where you type your commands. This tells the computer to do the things for you.
 
-    2. Click in the little box at the end of the file path, and type: 
+    2. Before we commit or push, we have to save locally in the computer, and tell the computer that we've done so. So in your file, make a save (either through clicking File in the toolbar and selecting save, or using the shortcut control+s).
+
+    After you've saved, click in the little box at the end of the file path in the terminal and type:
+
+    git add . 
+
+This tells the computer to look for any changes or saves made to add to the git repository.
+
+    3. To commit, type in the Terminal: 
     
     git commit -m "Write your message of what youre saving here"
 
@@ -34,7 +42,7 @@ Doing this creates what I think of as a "mini save". It won't upload it to the i
 
 You can make multiple of these little saves before uploading or "pushing", this works well if you have no/shoddy internet.
 
-     3. After you've committed a bunch, or want to upload to the online git repository, bring up a terminal again, or use the one thats already there if you still have it, and type:
+     4. After you've committed a bunch, or want to upload to the online git repository, bring up a terminal again, or use the one thats already there if you still have it, and type:
 
      git push
 
@@ -44,5 +52,5 @@ You can make multiple of these little saves before uploading or "pushing", this 
 
 This uploads your work to the shared repository, which we can then update and share with each other. 
 
-    4. This is for pulling and is blank until Clare learns how to pull :P 
+    5. This is for pulling and is blank until Clare learns how to pull :P 
 
