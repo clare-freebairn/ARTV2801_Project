@@ -66,5 +66,10 @@ To https://github.com/clare-freebairn/ARTV2801_Project.git
 
 This uploads your work to the shared repository, which we can then update and share with each other. 
                             --------*****----------
-    5. This is for pulling and is blank until Clare learns how to pull :P 
+    5. When you want to pull everyone elses work down to your local computer (best to do this when you start working so everything is up to date), simply type:
+
+    git pull
+
+    And it should update all your files with everyone else in the groups work. Again, if this throws an error pop it in the chat and we can workshop :)
+    
 
