@@ -68,3 +68,4 @@ This uploads your work to the shared repository, which we can then update and sh
                             --------*****----------
     5. This is for pulling and is blank until Clare learns how to pull :P 
 
+Hi I'm Jordan 
