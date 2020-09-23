@@ -42,7 +42,7 @@ function setGameLevels() {
   print(LevelArray)
 }
 
-function chooseminiGames() {
+function chooseMiniGames() {
 // This function shuffles the level array and chooses the first three of the shuffled array. 
 // It then returns this new array so it can be used to set the levels when someone plays the game.
 
