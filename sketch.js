@@ -6,16 +6,17 @@ var miniGames = [1, 2, 3, 4, 5, 6];
 var levelArray = [];
 
 
-function setup() {
+function setup() { // This function is called once at the beginning and never again. 
   createCanvas(windowWidth, windowHeight);
+  background(0, 0, 200);
   frameRate(20);
   textSize(30)
   setGameLevels();
   
 }
 
-function draw() {
-  background(220);
+function draw() { // This function is called and loops every frame
+  
   typeFont();
   
 }
@@ -37,9 +38,9 @@ function setGameLevels() {
   // be used to play and record the right levels. 
   gameLevel = chooseMiniGames();
 
-  levelArray = [gameLevel.forEach(function())]
+  //levelArray = [gameLevel.forEach(function())]
 
-  print(LevelArray)
+  //print(LevelArray)
 }
 
 function chooseMiniGames() {
