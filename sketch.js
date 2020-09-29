@@ -22,6 +22,7 @@ function setup() { // This function is called once at the beginning and never ag
 function draw() { // This function is called and loops every frame
 
   playLevels();
+  
 
 }
 
@@ -265,6 +266,28 @@ function loremIpsum() {
   fill(255);
 
   text(LoremIpsum, 0, 0, 800, 400)
+
+}
+//____________________________________________________________________________________________
+//Test Functions that are only for testing; wont be used in the final game 
+
+
+function mouseClicked() {
+
+  var a = mouseX > windowWidth/2 - 200 && mouseX < windowWidth/2 + 200;
+  var b =  mouseY > windowHeight/2 - 75 && mouseY < windowHeight/2 +75;
+
+  if(frameCount > 200 && a && b && levelArray[0].played == false ){
+    levelArray[0].played = true; 
+  }
+
+  if(a && b && levelArray[0].played == true && levelArray[1].played == false ){
+    levelArray[1].played = true;
+  }
+
+  if(a && b && levelArray[1].played == true && levelArray[2].played == false ){
+    levelArray[2].played =true;
+  }
 
 }
 
