@@ -27,6 +27,7 @@ function draw() { // This function is called and loops every frame
 }
 
 function playLevels() {
+  //This function uses the booleans in the functions below to determine which level to play. 
 
   if(frameCount < 200) {
     titleScreen();
@@ -204,7 +205,8 @@ function titleScreen() {
 
 
 }
-
+// The functions below contain all of the minigame screens, I will connect these to our individual 
+// files for whoever is coding each minigame so that this file doesnt become cluttered. 
 function miniGame1() {
   background(testColours[1]);
   text("MiniGame 1", windowWidth/2, windowHeight/2);
