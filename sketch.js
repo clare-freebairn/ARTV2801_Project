@@ -36,11 +36,11 @@ function playLevels() {
     levelArray[0].getMiniGame();
   }
 
-  if(levelArray[0].played == true && levelArray[1].played == false){
+  if(levelArray[1].played == false && levelArray[0].played == true ){
     levelArray[1].getMiniGame();
   }
 
-  if(levelArray[1].played = true && levelArray[2] == false){
+  if(levelArray[1].played == true ){
     levelArray[2].getMiniGame();
   }
 }
@@ -152,7 +152,7 @@ function setMinigamefunctions(){
       }
     } else if (levelArray[1].miniGame == 5){
       levelArray[1].getMiniGame = function getMiniGame(){
-        miniGame1()
+        miniGame5()
       }
     } else if (levelArray[2].miniGame == 1){
       levelArray[2].getMiniGame = function getMiniGame(){
@@ -274,19 +274,19 @@ function loremIpsum() {
 
 function mouseClicked() {
 
-  var a = mouseX > windowWidth/2 - 200 && mouseX < windowWidth/2 + 200;
-  var b =  mouseY > windowHeight/2 - 75 && mouseY < windowHeight/2 +75;
+  var a = mouseX < windowWidth/2;
+  var b =  mouseX > windowWidth/2;
 
-  if(frameCount > 200 && a && b && levelArray[0].played == false ){
+  if(frameCount > 200 && a && levelArray[0].played == false ){
     levelArray[0].played = true; 
   }
 
-  if(a && b && levelArray[0].played == true && levelArray[1].played == false ){
+  if( b && levelArray[0].played === true && levelArray[1].played === false ){
     levelArray[1].played = true;
   }
 
-  if(a && b && levelArray[1].played == true && levelArray[2].played == false ){
-    levelArray[2].played =true;
+  if(a && levelArray[1].played == true && levelArray[2].played == false ){
+    levelArray[2].played = true;
   }
 
 }
