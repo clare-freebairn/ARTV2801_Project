@@ -30,7 +30,7 @@ Minigames:
 
 3. Classic Glitch Dyslexia
 - read this glitchy paragraph
--answer three questions about the content. 
+- answer three questions about the content. 
 
 4. Spelling Based one
 - Like the previous colour/similar word based one
