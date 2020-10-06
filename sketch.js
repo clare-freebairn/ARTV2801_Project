@@ -22,26 +22,26 @@ function setup() { // This function is called once at the beginning and never ag
 function draw() { // This function is called and loops every frame
 
   playLevels();
-  
+
 
 }
 
 function playLevels() {
   //This function uses the booleans in the functions below to determine which level to play. 
 
-  if(frameCount < 200) {
+  if (frameCount < 200) {
     titleScreen();
   }
 
-  if(frameCount > 200 && levelArray[0].played == false){
+  if (frameCount > 200 && levelArray[0].played == false) {
     levelArray[0].getMiniGame();
   }
 
-  if(levelArray[1].played == false && levelArray[0].played == true ){
+  if (levelArray[1].played == false && levelArray[0].played == true) {
     levelArray[1].getMiniGame();
   }
 
-  if(levelArray[1].played == true ){
+  if (levelArray[1].played == true) {
     levelArray[2].getMiniGame();
   }
 }
@@ -71,115 +71,115 @@ function setGameLevels() {
   //print(LevelArray)
 }
 
-function setMinigamefunctions(){
+function setMinigamefunctions() {
   //Uses a bunch of boolean statements to add a method function to the level array. 
   //This means when you call levelArray[i].getMiniGame() it should call the correct minigame.
 
 
   //If any of the minigames should be the first, create a 
   //function which calls the miniGame1() below.  
-  if(levelArray.length == 3){
-    if (levelArray[0].miniGame == 1){
-      levelArray[0].getMiniGame = function getMiniGame(){
+  if (levelArray.length == 3) {
+    if (levelArray[0].miniGame == 1) {
+      levelArray[0].getMiniGame = function getMiniGame() {
         miniGame1()
       }
-    } else if (levelArray[1].miniGame == 1){
-      levelArray[1].getMiniGame = function getMiniGame(){
+    } else if (levelArray[1].miniGame == 1) {
+      levelArray[1].getMiniGame = function getMiniGame() {
         miniGame1()
       }
-    } else if (levelArray[2].miniGame == 1){
-      levelArray[2].getMiniGame = function getMiniGame(){
+    } else if (levelArray[2].miniGame == 1) {
+      levelArray[2].getMiniGame = function getMiniGame() {
         miniGame1()
       }
     }
   }
 
   //Set minigame2
-  if(levelArray.length == 3){
-    if (levelArray[0].miniGame == 2){
-      levelArray[0].getMiniGame = function getMiniGame(){
+  if (levelArray.length == 3) {
+    if (levelArray[0].miniGame == 2) {
+      levelArray[0].getMiniGame = function getMiniGame() {
         miniGame2()
       }
-    } else if (levelArray[1].miniGame == 2){
-      levelArray[1].getMiniGame = function getMiniGame(){
+    } else if (levelArray[1].miniGame == 2) {
+      levelArray[1].getMiniGame = function getMiniGame() {
         miniGame2()
       }
-    } else if (levelArray[2].miniGame == 2){
-      levelArray[2].getMiniGame = function getMiniGame(){
+    } else if (levelArray[2].miniGame == 2) {
+      levelArray[2].getMiniGame = function getMiniGame() {
         miniGame2()
       }
     }
   }
 
   //Set minigame3
-  if(levelArray.length == 3){
-    if (levelArray[0].miniGame == 3){
-      levelArray[0].getMiniGame = function getMiniGame(){
+  if (levelArray.length == 3) {
+    if (levelArray[0].miniGame == 3) {
+      levelArray[0].getMiniGame = function getMiniGame() {
         miniGame3()
       }
-    } else if (levelArray[1].miniGame == 3){
-      levelArray[1].getMiniGame = function getMiniGame(){
+    } else if (levelArray[1].miniGame == 3) {
+      levelArray[1].getMiniGame = function getMiniGame() {
         miniGame3()
       }
-    } else if (levelArray[2].miniGame == 3){
-      levelArray[2].getMiniGame = function getMiniGame(){
+    } else if (levelArray[2].miniGame == 3) {
+      levelArray[2].getMiniGame = function getMiniGame() {
         miniGame3()
       }
     }
   }
 
   //Set minigame4
-  if(levelArray.length == 3){
-    if (levelArray[0].miniGame == 4){
-      levelArray[0].getMiniGame = function getMiniGame(){
+  if (levelArray.length == 3) {
+    if (levelArray[0].miniGame == 4) {
+      levelArray[0].getMiniGame = function getMiniGame() {
         miniGame4()
       }
-    } else if (levelArray[1].miniGame == 4){
-      levelArray[1].getMiniGame = function getMiniGame(){
+    } else if (levelArray[1].miniGame == 4) {
+      levelArray[1].getMiniGame = function getMiniGame() {
         miniGame4()
       }
-    } else if (levelArray[2].miniGame == 4){
-      levelArray[2].getMiniGame = function getMiniGame(){
+    } else if (levelArray[2].miniGame == 4) {
+      levelArray[2].getMiniGame = function getMiniGame() {
         miniGame4()
       }
     }
   }
 
   //Set minigame5
-  if(levelArray.length == 3){
-    if (levelArray[0].miniGame == 5){
-      levelArray[0].getMiniGame = function getMiniGame(){
+  if (levelArray.length == 3) {
+    if (levelArray[0].miniGame == 5) {
+      levelArray[0].getMiniGame = function getMiniGame() {
         miniGame5()
       }
-    } else if (levelArray[1].miniGame == 5){
-      levelArray[1].getMiniGame = function getMiniGame(){
+    } else if (levelArray[1].miniGame == 5) {
+      levelArray[1].getMiniGame = function getMiniGame() {
         miniGame5()
       }
-    } else if (levelArray[2].miniGame == 1){
-      levelArray[2].getMiniGame = function getMiniGame(){
+    } else if (levelArray[2].miniGame == 1) {
+      levelArray[2].getMiniGame = function getMiniGame() {
         miniGame5()
       }
     }
   }
 
   //Set minigame6
-  if(levelArray.length == 3){
-    if (levelArray[0].miniGame == 6){
-      levelArray[0].getMiniGame = function getMiniGame(){
+  if (levelArray.length == 3) {
+    if (levelArray[0].miniGame == 6) {
+      levelArray[0].getMiniGame = function getMiniGame() {
         miniGame6()
       }
-    } else if (levelArray[1].miniGame == 6){
-      levelArray[1].getMiniGame = function getMiniGame(){
+    } else if (levelArray[1].miniGame == 6) {
+      levelArray[1].getMiniGame = function getMiniGame() {
         miniGame6()
       }
-    } else if (levelArray[2].miniGame == 6){
-      levelArray[2].getMiniGame = function getMiniGame(){
+    } else if (levelArray[2].miniGame == 6) {
+      levelArray[2].getMiniGame = function getMiniGame() {
         miniGame6()
       }
     }
   }
 
-  
+
 
 }
 
@@ -200,7 +200,7 @@ function chooseMiniGames() {
 
 function titleScreen() {
   background(testColours[0]);
-  text("Sorry, I can't read that", windowWidth/2, windowHeight/2);
+  text("Sorry, I can't read that", windowWidth / 2, windowHeight / 2);
 
 
 
@@ -209,37 +209,37 @@ function titleScreen() {
 // files for whoever is coding each minigame so that this file doesnt become cluttered. 
 function miniGame1() {
   background(testColours[1]);
-  text("MiniGame 1", windowWidth/2, windowHeight/2);
+  text("MiniGame 1", windowWidth / 2, windowHeight / 2);
 
 }
 
 function miniGame2() {
   background(testColours[2]);
-  text("MiniGame 2", windowWidth/2, windowHeight/2);
+  text("MiniGame 2", windowWidth / 2, windowHeight / 2);
 
 }
 
 function miniGame3() {
   background(testColours[3]);
-  text("MiniGame 3", windowWidth/2, windowHeight/2);
+  text("MiniGame 3", windowWidth / 2, windowHeight / 2);
 
 }
 
 function miniGame4() {
   background(testColours[4]);
-  text("MiniGame 4", windowWidth/2, windowHeight/2);
+  text("MiniGame 4", windowWidth / 2, windowHeight / 2);
 
 }
 
 function miniGame5() {
   background(testColours[5]);
-  text("MiniGame 5", windowWidth/2, windowHeight/2);
+  text("MiniGame 5", windowWidth / 2, windowHeight / 2);
 
 }
 
 function miniGame6() {
   background(testColours[6]);
-  text("MiniGame 6", windowWidth/2, windowHeight/2);
+  text("MiniGame 6", windowWidth / 2, windowHeight / 2);
 
 }
 
@@ -276,18 +276,18 @@ function loremIpsum() {
 
 function mouseClicked() {
 
-  var a = mouseX < windowWidth/2;
-  var b =  mouseX > windowWidth/2;
+  var a = mouseX < windowWidth / 2;
+  var b = mouseX > windowWidth / 2;
 
-  if(frameCount > 200 && a && levelArray[0].played == false ){
-    levelArray[0].played = true; 
+  if (frameCount > 200 && a && levelArray[0].played == false) {
+    levelArray[0].played = true;
   }
 
-  if( b && levelArray[0].played === true && levelArray[1].played === false ){
+  if (b && levelArray[0].played === true && levelArray[1].played === false) {
     levelArray[1].played = true;
   }
 
-  if(a && levelArray[1].played == true && levelArray[2].played == false ){
+  if (a && levelArray[1].played == true && levelArray[2].played == false) {
     levelArray[2].played = true;
   }
 
