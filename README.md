@@ -17,7 +17,24 @@ Cheers, Clare
 
 Feel free to add any messages or links in here:
 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Minigames:
 
+1. Auditory distraction Minigame:
+- audio that fades in and out, difficult to hear. Long winded, convoluted.
+- Input box 
+
+2. Writing with mouse game
+- Use the curser to write a word on the screen.
+- based on other confusing "prove youre not a robot" style text?
+
+3. Classic Glitch Dyslexia
+- read this glitchy paragraph
+-answer three questions about the content. 
+
+4. Spelling Based one
+- Like the previous colour/similar word based one
+- (typeFont function)
 
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
