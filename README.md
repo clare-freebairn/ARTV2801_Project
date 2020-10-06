@@ -24,6 +24,21 @@ Minigames:
 - audio that fades in and out, difficult to hear. Long winded, convoluted.
 - Input box 
 
+Gist:
+- That it will be both distracting and confusing but also possible to answer 
+
+Format/Structure:
+
+- scene setting phrase "youre at a coffee shop with your friend listening to them tell a story"
+- play the audio of the conversation/ repeating turn of phrase.
+- screen some kind of abstract screen saver like thing.
+- input box saying "What is your answer"
+
+Objective:
+ - Idea that dys is not just written words and spelling. Its also linked to attention/focus. 
+ Getting caught up with certain phrases and meanings that arent direct (like sayings and metaphors) 
+ -phrases repeating in your head to understand them
+
 2. Writing with mouse game
 - Use the curser to write a word on the screen.
 - based on other confusing "prove youre not a robot" style text?
@@ -35,6 +50,33 @@ Minigames:
 4. Spelling Based one
 - Like the previous colour/similar word based one
 - (typeFont function)
+
+Format:
+- ~ different words/spelling/colour boxes
+-"Click which one is correct"
+- Score through the game. at end display how theyre answers sit within the questions. eg 
+
+Question: "It is not ________ correct"
+answers: "Necesarily/ Nessicarily"
+Result "It is not _Nessicarily_ correct"
+
+Question: "____ you be able to ____ this?"
+Answers: "World/read. Would/reed"
+Result: "_Would_ you be able to _reed_ this?"
+
+Question: "Does this ___ make it easier?"
+Answers: "fant/ Coler/ Seize"
+Result: "Does this _fant_ make it easier?"
+        "Does this _coler_ make it easier?"
+        "Does this _seize_ make it easier?"       
+
+Question: "Which of these sentences makes sense?"
+Answers: "get Jordan, Sasha to write some quick sentences of phrases, trying not to worry about spelling"
+Result: ""
+
+Objective:
+- simulate how spelling can be difficult/ understanding which word it is
+- Not meant to be a "get it right" sometimes both answers are wrong (maybe both).
 
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
