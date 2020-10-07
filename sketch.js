@@ -155,7 +155,7 @@ function setMinigamefunctions(){
       levelArray[1].getMiniGame = function getMiniGame(){
         miniGame5()
       }
-    } else if (levelArray[2].miniGame == 1){
+    } else if (levelArray[2].miniGame == 5){
       levelArray[2].getMiniGame = function getMiniGame(){
         miniGame5()
       }
