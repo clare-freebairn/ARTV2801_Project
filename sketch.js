@@ -6,6 +6,8 @@ var LoremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d
 
 var miniGames = [1, 2, 3, 4, 5, 6];
 var levelArray = [];
+let wWidth;
+let wHeight;
 
 
 
@@ -17,11 +19,16 @@ function setup() { // This function is called once at the beginning and never ag
   textAlign(CENTER);
   setGameLevels();
 
+  wWidth = windowWidth;
+  wHeight = windowHeight;
+
 }
 
 function draw() { // This function is called and loops every frame
 
   playLevels();
+  wWidth = windowWidth;
+  wHeight = windowHeight;
   
 
 }
@@ -222,6 +229,7 @@ function miniGame2() {
 function miniGame3() {
   background(testColours[3]);
   text("MiniGame 3", windowWidth/2, windowHeight/2);
+  spellingGame();
 
 }
 
