@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorry, I can't read that</title>
+
+    <!-- this is the main p5 library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+
+    <script type="text/javascript" src="classic / script.js"></script> <!-- link to p5.js sketch-->
+    <script type="text/javascript" src="classic / sketch.js"></script>
+    <!-- CSS styling for "back to gallery" button, remove scrollbars -->
+    <style>
+        body {
+            padding: 10px;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        container {
+            padding: 0 0 0 10px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Reading and Comprehension</h1><br>
+
+    <script type="text/javascript" src="classic / sketch.js"></script>
+
+    <div class="container">
+        <h3> This is a question asking something</h3><br>
+        <form>
+            <input type="radio" name="choice" value="choice one"> this is choice one
+            <input type="radio" name="choice" value="choice two"> this is choice two
+            <input type="radio" name="choice" value="choice three"> this is choice three
+            <input type="radio" name="choice" value="choice four"> this is choice four
+        </form><br>
+        <button onclick="submitAnswer()">Submit Answer</button>
+    </div>
+
+
+</body>
+
+
+</html>
