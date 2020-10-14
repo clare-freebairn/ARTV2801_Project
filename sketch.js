@@ -237,12 +237,31 @@ function mouseClicked() {
   } else if(spellingGameBooleans.mouseOver2 == true && spellingGameBooleans.question3 != 0 && spellingGameBooleans.question4 == 0){
     spellingGameBooleans.question4 = 2;
     spellingGameBooleans.titleScreen = 1;
+  }
 
   //__________MiniGame 4__________\\
 
   //__________MiniGame 5__________\\
 
   //__________MiniGame 6__________\\
+
+  //__________Testing__________\\
+
+  var a = mouseX < windowWidth/2;
+  var b =  mouseX > windowWidth/2;
+
+  if(frameCount > 200 && a && levelArray[0].played == false && levelArray[0].minigame != 3){
+    levelArray[0].played = true; 
+  }
+
+  if( b && levelArray[0].played === true && levelArray[1].played === false && levelArray[1].miniGame != 3){
+    levelArray[1].played = true;
+  }
+
+  if(a && levelArray[1].played == true && levelArray[2].played == false && levelArray[2].miniGame != 3){
+    levelArray[2].played = true;
+  }
+  
 
 }
 
@@ -320,28 +339,6 @@ function loremIpsum() {
   fill(255);
 
   text(LoremIpsum, 0, 0, 800, 400)
-
-}
-//____________________________________________________________________________________________
-//Test Functions that are only for testing; wont be used in the final game 
-
-
-function mouseClicked() {
-
-  var a = mouseX < windowWidth/2;
-  var b =  mouseX > windowWidth/2;
-
-  if(frameCount > 200 && a && levelArray[0].played == false && levelArray[0].minigame != 3){
-    levelArray[0].played = true; 
-  }
-
-  if( b && levelArray[0].played === true && levelArray[1].played === false && levelArray[1].miniGame != 3){
-    levelArray[1].played = true;
-  }
-
-  if(a && levelArray[1].played == true && levelArray[2].played == false && levelArray[2].miniGame != 3){
-    levelArray[2].played = true;
-  }
 
 }
 

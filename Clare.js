@@ -5,13 +5,15 @@ var buttonPlacement;
 var currentQText = [questionsMinigame3[0], answersMinigame3[0]];
 var spellingGameBooleans = {mouseOver1: false, mouseOver2: false, question1: 0, question2: 0, question3: 0, question4: 0, endTitle: 0};
 
+var endTitleTextMinigame3 = [];
+
 
 
 
 function spellingGame() {
     setButtons();
     mouseIsOverButtons();
-    if(endTitle == 0){
+    if(spellingGameBooleans.endTitle == 0){
         spellingButtons();
     spellingGameText();
     } else {
@@ -26,7 +28,7 @@ function setButtons(){
         {x: wWidth*0.25, y: wHeight*0.125, w: wWidth*0.5, h: wHeight*0.25, colour: colour[2], stroke: colour[1], text: colour[4]}, 
         {x: wWidth*0.125, y: wHeight*0.5, w: wWidth*0.333, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}, 
         {x: wWidth*0.52, y: wHeight*0.5, w: wWidth*0.333, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}],
-        {x: y: w: h: colour: stroke: text: }
+        {x: 10, y: 10, w: 10, h: 10, colour: colour[2], stroke: colour[1], text: colour[4]}
 }
 
 function mouseIsOverButtons() {
@@ -69,7 +71,7 @@ function spellingButtons() {
     stroke(buttonPlacement[2].stroke);
     rect(buttonPlacement[2].x, buttonPlacement[2].y, buttonPlacement[2].w, buttonPlacement[2].h);
     pop();
-    console.log(mouseX, mouseY);
+    // console.log(mouseX, mouseY);
 
 }
 
@@ -89,13 +91,52 @@ function spellingGameText() {
 }
 
 function spellingGameScoring() {
+
+    if(spellingGameBooleans.question1 == 1){
+        endTitleTextMinigame3.push("It is not necesarily correct")
+    } else if(spellingGameBooleans.question1 == 2){
+        endTitleTextMinigame3.push("It is not nessicarily correct")
+    }
+
+    if(spellingGameBooleans.question2 == 1){
+        endTitleTextMinigame3.push("Wuld you be able to read this?") 
+    } else if(spellingGameBooleans.question2 == 2){
+        endTitleTextMinigame3.push("Would you be able to reed this?") 
+    }
+
+    if(spellingGameBooleans.question3 == 1){
+        endTitleTextMinigame3.push("Does this coler help?") 
+    } else if(spellingGameBooleans.question3 == 2){
+        endTitleTextMinigame3.push("Does this fant help?") 
+    }
+
+    if(spellingGameBooleans.question4 == 1){
+        endTitleTextMinigame3.push("Why can't you lane this?") 
+    } else if(spellingGameBooleans.question4 == 2){
+        endTitleTextMinigame3.push("Why can't you lern this?") 
+    }
+
+    
     
 
 }
 
 function spellingGameEndTitle() {
+    spellingGameScoring();
+
+  
     push();
 
-    text();
+    fill(colour[2]);
+    stroke(colour[4]);
+    rect();
+    fill(buttonPlacement[3].text);
+    text("How is your Spelling?" );
+    text("These are your selected answers, how did you do? Did you find it difficult to get them right?");
+    text(endTitleTextMinigame3[0], );
+    text(endTitleTextMinigame3[1]);
+    text(endTitleTextMinigame3[2]);
+    text(endTitleTextMinigame3[3]);
+    text("Next Game" )
 
 }
