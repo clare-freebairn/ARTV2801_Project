@@ -201,6 +201,50 @@ function chooseMiniGames() {
   print(currentMiniGames); //This will show in the console which 3 miniGames were chosen.
   return (currentMiniGames);
 }
+// ___________________________________________________________________________________________
+// This is the mouseClicked function, anything that needs to happen on a mouseClick should go in this function
+
+function mouseClicked() {
+  // Please keep this function as tidy as possible and follow 
+  //the formatting, as this function is likely to get very long. 
+  // __________MiniGame 1_________\\
+
+  //__________MiniGame 2__________\\
+
+  //__________MiniGame 3__________\\
+
+  if(spellingGameBooleans.mouseOver1 == true && spellingGameBooleans.question1 == 0){
+    spellingGameBooleans.question1 = 1;
+  } else if(spellingGameBooleans.mouseOver2 == true && spellingGameBooleans.question1 == 0){
+    spellingGameBooleans.question1 = 2;
+  }
+
+  if(spellingGameBooleans.mouseOver1 == true && spellingGameBooleans.question1 != 0 && spellingGameBooleans.question2 == 0){
+    spellingGameBooleans.question2 = 1;
+  } else if(spellingGameBooleans.mouseOver2 == true && spellingGameBooleans.question1 != 0 && spellingGameBooleans.question2 == 0){
+    spellingGameBooleans.question2 = 2;
+  }
+
+  if(spellingGameBooleans.mouseOver1 == true && spellingGameBooleans.question2 != 0 && spellingGameBooleans.question3 == 0){
+    spellingGameBooleans.question3 = 1;
+  } else if(spellingGameBooleans.mouseOver2 == true && spellingGameBooleans.question2 != 0 && spellingGameBooleans.question3 == 0){
+    spellingGameBooleans.question3 = 2;
+  }
+
+  if(spellingGameBooleans.mouseOver1 == true && spellingGameBooleans.question3 != 0 && spellingGameBooleans.question4 == 0){
+    spellingGameBooleans.question4 = 1;
+    spellingGameBooleans.titleScreen = 1; 
+  } else if(spellingGameBooleans.mouseOver2 == true && spellingGameBooleans.question3 != 0 && spellingGameBooleans.question4 == 0){
+    spellingGameBooleans.question4 = 2;
+    spellingGameBooleans.titleScreen = 1;
+
+  //__________MiniGame 4__________\\
+
+  //__________MiniGame 5__________\\
+
+  //__________MiniGame 6__________\\
+
+}
 
 //____________________________________________________________________________________________
 // Below this line are functions that contain the different Minigame function calls 
@@ -287,15 +331,15 @@ function mouseClicked() {
   var a = mouseX < windowWidth/2;
   var b =  mouseX > windowWidth/2;
 
-  if(frameCount > 200 && a && levelArray[0].played == false ){
+  if(frameCount > 200 && a && levelArray[0].played == false && levelArray[0].minigame != 3){
     levelArray[0].played = true; 
   }
 
-  if( b && levelArray[0].played === true && levelArray[1].played === false ){
+  if( b && levelArray[0].played === true && levelArray[1].played === false && levelArray[1].miniGame != 3){
     levelArray[1].played = true;
   }
 
-  if(a && levelArray[1].played == true && levelArray[2].played == false ){
+  if(a && levelArray[1].played == true && levelArray[2].played == false && levelArray[2].miniGame != 3){
     levelArray[2].played = true;
   }
 
