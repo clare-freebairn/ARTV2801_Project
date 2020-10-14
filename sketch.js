@@ -205,6 +205,8 @@ function chooseMiniGames() {
 // This is the mouseClicked function, anything that needs to happen on a mouseClick should go in this function
 
 function mouseClicked() {
+  print("clicked")
+  var clicked = false;
   // Please keep this function as tidy as possible and follow 
   //the formatting, as this function is likely to get very long. 
   // __________MiniGame 1_________\\
@@ -213,30 +215,38 @@ function mouseClicked() {
 
   //__________MiniGame 3__________\\
 
-  if(spellingGameBooleans.mouseOver1 == true && spellingGameBooleans.question1 == 0){
+  if(spellingGameBooleans.mouseOver1 && spellingGameBooleans.question1 == 0){
     spellingGameBooleans.question1 = 1;
-  } else if(spellingGameBooleans.mouseOver2 == true && spellingGameBooleans.question1 == 0){
+    return;
+  } else if(spellingGameBooleans.mouseOver2  && spellingGameBooleans.question1 == 0){
     spellingGameBooleans.question1 = 2;
+    return;
   }
 
-  if(spellingGameBooleans.mouseOver1 == true && spellingGameBooleans.question1 != 0 && spellingGameBooleans.question2 == 0){
+  if(spellingGameBooleans.mouseOver1 && spellingGameBooleans.question1 != 0 && spellingGameBooleans.question2 == 0){
     spellingGameBooleans.question2 = 1;
-  } else if(spellingGameBooleans.mouseOver2 == true && spellingGameBooleans.question1 != 0 && spellingGameBooleans.question2 == 0){
+    return;
+  } else if(spellingGameBooleans.mouseOver2 && spellingGameBooleans.question1 != 0 && spellingGameBooleans.question2 == 0){
     spellingGameBooleans.question2 = 2;
+    return;
   }
 
-  if(spellingGameBooleans.mouseOver1 == true && spellingGameBooleans.question2 != 0 && spellingGameBooleans.question3 == 0){
+  if(spellingGameBooleans.mouseOver1 && spellingGameBooleans.question2 != 0 && spellingGameBooleans.question3 == 0){
     spellingGameBooleans.question3 = 1;
-  } else if(spellingGameBooleans.mouseOver2 == true && spellingGameBooleans.question2 != 0 && spellingGameBooleans.question3 == 0){
+    return;
+  } else if(spellingGameBooleans.mouseOver2 && spellingGameBooleans.question2 != 0 && spellingGameBooleans.question3 == 0){
     spellingGameBooleans.question3 = 2;
+    return;
   }
 
-  if(spellingGameBooleans.mouseOver1 == true && spellingGameBooleans.question3 != 0 && spellingGameBooleans.question4 == 0){
+  if(spellingGameBooleans.mouseOver1 && spellingGameBooleans.question3 != 0 && spellingGameBooleans.question4 == 0){
     spellingGameBooleans.question4 = 1;
     spellingGameBooleans.titleScreen = 1; 
-  } else if(spellingGameBooleans.mouseOver2 == true && spellingGameBooleans.question3 != 0 && spellingGameBooleans.question4 == 0){
+    return;
+  } else if(spellingGameBooleans.mouseOver2 && spellingGameBooleans.question3 != 0 && spellingGameBooleans.question4 == 0){
     spellingGameBooleans.question4 = 2;
     spellingGameBooleans.titleScreen = 1;
+    return;
   }
 
   //__________MiniGame 4__________\\

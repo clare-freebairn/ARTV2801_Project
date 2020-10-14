@@ -87,7 +87,27 @@ function spellingGameText() {
 
     fill(buttonPlacement[2].text);
     text(currentQText[1][1], buttonPlacement[2].x + (buttonPlacement[2].w)/2, buttonPlacement[2].y + (buttonPlacement[2].h)/2);
+
+    changeSpellingGameText();
     pop();
+}
+
+function changeSpellingGameText() {
+
+    if(spellingGameBooleans.question1 != 0 && spellingGameBooleans.question2 == 0){
+        currentQText = [questionsMinigame3[1], answersMinigame3[1]];
+        return;
+    }
+
+    if(spellingGameBooleans.question2 != 0 && spellingGameBooleans.question3 == 0){
+        currentQText = [questionsMinigame3[2], answersMinigame3[2]];
+        return;
+    }
+
+    if(spellingGameBooleans.question3 != 0 && spellingGameBooleans.question4 == 0){
+        currentQText = [questionsMinigame3[3], answersMinigame3[3]];
+        return;
+    }
 }
 
 function spellingGameScoring() {
