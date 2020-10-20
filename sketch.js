@@ -21,6 +21,7 @@ function setup() { // This function is called once at the beginning and never ag
 
   wWidth = windowWidth;
   wHeight = windowHeight;
+  hexagonSetup();
 
 }
 
@@ -251,6 +252,10 @@ function mouseClicked() {
 
   //__________MiniGame 4__________\\
 
+  if(distractionGameBooleans.mouseOver1 && !distractionGameBooleans.title) {
+    distractionGameBooleans.title = true; 
+  }
+
   //__________MiniGame 5__________\\
 
   //__________MiniGame 6__________\\
@@ -308,7 +313,7 @@ function miniGame3() {
 
 function miniGame4() {
   background(testColours[4]);
-  text("MiniGame 4", windowWidth/2, windowHeight/2);
+  distractionGame()
 
 }
 
