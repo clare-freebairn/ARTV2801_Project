@@ -6,10 +6,13 @@ var LoremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed d
 
 var miniGames = [1, 2, 3, 4, 5, 6];
 var levelArray = [];
+var distractionSound
 let wWidth;
 let wHeight;
 
-
+function preload() {
+  distractionSound = loadSound('assets/FinsihedSoundForQuestion.mp3');
+}
 
 function setup() { // This function is called once at the beginning and never again. 
   createCanvas(windowWidth, windowHeight);
