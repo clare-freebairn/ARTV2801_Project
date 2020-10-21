@@ -285,32 +285,32 @@ var questionsMinigame3 = ["It's not ________ correct", "____ you be able to ____
 var answersMinigame3 = [["Necesarily", "Nessicarily"], ["Wuld/read", "Would/reed"], ["Fant", "Coler"], ["Lane", "Lern"]];
 var buttonPlacement;
 var currentQText = [questionsMinigame3[0], answersMinigame3[0]];
-var spellingGameBooleans = {mouseOver1: false, mouseOver2: false, mouseOver3: false, question1: 0, question2: 0, question3: 0, question4: 0, endTitle: 0};
+var spellingGameBooleans = {mouseOver1: false, mouseOver2: false, mouseOver3: false, started: false, question1: 0, question2: 0, question3: 0, question4: 0, endTitle: 0};
 var endTitleTextMinigame3 = [];
 var spellingGameCalls = 0;
 
 function spellingGame() {
-    var startingFrameRate;
-    if(spellingGameCalls == 0){ 
-        startingFrameRate = frameCount;
-        spellingGameCalls += 1;
-    }
+        
     setButtons();
     mouseIsOverButtons();
     
-    spellingGameTitle();
+    if(!spellingGameBooleans.started){
+        spellingGameTitle();
+    }
+    if( spellingGameBooleans.started && spellingGameBooleans.endTitle == 0){
+        spellingGameAfterTitle();
+    }
+     if(spellingGameBooleans.endTitle > 0){
+        spellingGameEndTitle();
+    }
     
     
     
 }
 
 function spellingGameAfterTitle() {
-    if(spellingGameBooleans.endTitle == 0){
-        spellingButtons();
-        spellingGameText();
-    } else {
-        spellingGameEndTitle();
-    }
+    spellingButtons();
+    spellingGameText();   
 }
 
 function spellingGameTitle() {
@@ -318,6 +318,13 @@ function spellingGameTitle() {
     fill(buttonPlacement[0].text);
     text("Spelling Game", wWidth*0.5, wHeight*0.25);
     text("For each question select the correct answer.", wWidth*0.5, wHeight*0.5);
+    fill(buttonPlacement[4].colour);
+    strokeWeight(20);
+    stroke(buttonPlacement[4].stroke);
+    rect(buttonPlacement[4].x - buttonPlacement[4].w/2, buttonPlacement[4].y, buttonPlacement[4].w, buttonPlacement[4].h);
+    fill(buttonPlacement[4].text);
+    noStroke();
+    text("Start", buttonPlacement[4].x, buttonPlacement[4].y + buttonPlacement[4].h/2);
     pop()
 
 }
@@ -326,9 +333,9 @@ function setButtons(){
     buttonPlacement = [
         {x: wWidth*0.25, y: wHeight*0.125, w: wWidth*0.5, h: wHeight*0.25, colour: colour[2], stroke: colour[1], text: colour[4]}, 
         {x: wWidth*0.125, y: wHeight*0.5, w: wWidth*0.333, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}, 
-        {x: wWidth*0.52, y: wHeight*0.5, w: wWidth*0.333, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}],
+        {x: wWidth*0.52, y: wHeight*0.5, w: wWidth*0.333, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]},
         {x: 10, y: 10, w: 10, h: 10, colour: colour[2], stroke: colour[1], text: colour[4]},
-        {x: wWidth*0.48, y: wHeight*0.75, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}
+        {x: wWidth*0.48, y: wHeight*0.75, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}]
 }
 
 function mouseIsOverButtons() {
@@ -354,15 +361,15 @@ function mouseIsOverButtons() {
         spellingGameBooleans.mouseOver2 = false;
     }
 
-    var e = mouseX > distractionButtons[4].x - distractionButtons[4].w / 2 && mouseX < distractionButtons[4].x - distractionButtons[4].w / 2 + distractionButtons[4].w;
-    var f = mouseY > distractionButtons[4].y && mouseY < distractionButtons[4].y + distractionButtons[4].h;
-    if (e && f && (!distractionGameBooleans.title || distractionGameBooleans.endTitle)) {
-        distractionButtons[4].colour = colour[4];
-        distractionButtons[4].stroke = colour[0];
-        distractionButtons[4].text = colour[2];
-        distractionGameBooleans.mouseOver3 = true;
+    var e = mouseX > buttonPlacement[4].x - buttonPlacement[4].w / 2 && mouseX < buttonPlacement[4].x - buttonPlacement[4].w / 2 + buttonPlacement[4].w;
+    var f = mouseY > buttonPlacement[4].y && mouseY < buttonPlacement[4].y + buttonPlacement[4].h;
+    if (e && f && (!spellingGameBooleans.started || spellingGameBooleans.endTitle)) {
+        buttonPlacement[4].colour = colour[4];
+        buttonPlacement[4].stroke = colour[0];
+        buttonPlacement[4].text = colour[2];
+        spellingGameBooleans.mouseOver3 = true;
     } else {
-        distractionGameBooleans.mouseOver3 = false;
+        spellingGameBooleans.mouseOver3 = false;
     }
 }
 
@@ -452,15 +459,20 @@ function spellingGameEndTitle() {
     spellingGameScoring();
   
     push();
-    fill(colour[2]);
-    stroke(colour[4]);
-    rect();
     fill(buttonPlacement[3].text);
-    text("How is your Spelling?" );
-    text("These are your selected answers, how did you do? Did you find it difficult to get them right?");
-    text(endTitleTextMinigame3[0], );
-    text(endTitleTextMinigame3[1]);
-    text(endTitleTextMinigame3[2]);
-    text(endTitleTextMinigame3[3]);
-    text("Next Game" )
+    noStroke();
+    text("How is your Spelling?", wWidth/2, wHeight * 0.25);
+    text("These are your selected answers, how did you do?", wWidth/2, wHeight * 0.25 + 30);
+    text("Did you find it difficult to get them right?", wWidth/2, wHeight * 0.25 + 60);
+    text(endTitleTextMinigame3[0], wWidth/2, wHeight/2 - 30);
+    text(endTitleTextMinigame3[1], wWidth/2, wHeight/2);
+    text(endTitleTextMinigame3[2], wWidth/2, wHeight/2 + 30);
+    text(endTitleTextMinigame3[3], wWidth/2, wHeight/2 + 60);
+    fill(buttonPlacement[4].colour);
+    strokeWeight(20);
+    stroke(buttonPlacement[4].stroke);
+    rect(buttonPlacement[4].x - buttonPlacement[4].w/2, buttonPlacement[4].y, buttonPlacement[4].w, buttonPlacement[4].h);
+    fill(buttonPlacement[4].text);
+    noStroke();
+    text("Next Game", buttonPlacement[4].x, buttonPlacement[4].y + buttonPlacement[4].h/2);
 }

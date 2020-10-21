@@ -55,6 +55,10 @@ function playLevels() {
   if(levelArray[1].played == true ){
     levelArray[2].getMiniGame();
   }
+
+  if(levelArray[0].played && levelArray[1].played && levelArray[2].played){
+    endScreen();
+  }
 }
 
 function setGameLevels() {
@@ -245,19 +249,64 @@ function mouseClicked() {
 
   if(spellingGameBooleans.mouseOver1 && spellingGameBooleans.question3 != 0 && spellingGameBooleans.question4 == 0){
     spellingGameBooleans.question4 = 1;
-    spellingGameBooleans.titleScreen = 1; 
+    spellingGameBooleans.endTitle = 1; 
     return;
   } else if(spellingGameBooleans.mouseOver2 && spellingGameBooleans.question3 != 0 && spellingGameBooleans.question4 == 0){
     spellingGameBooleans.question4 = 2;
-    spellingGameBooleans.titleScreen = 1;
+    spellingGameBooleans.endTitle = 1;
     return;
+  }
+
+  if(spellingGameBooleans.mouseOver3 && !spellingGameBooleans.started){
+    spellingGameBooleans.started = true;
+    return;
+  } else if (spellingGameBooleans.mouseOver3 && spellingGameBooleans.started && spellingGameBooleans.endTitle > 0 ){
+    if(levelArray[0].miniGame == 3 && !levelArray[0].played){
+      levelArray[0].played = true;
+      return;
+    } else if(levelArray[1].miniGame == 3 && !levelArray[1].played){
+      levelArray[1].played = true;
+      return;
+    } else if(levelArray[2].miniGame == 3 && !levelArray[2].played){
+      levelArray[2].played = true;
+      return;
+    }
+    
   }
 
   //__________MiniGame 4__________\\
 
-  if(distractionGameBooleans.mouseOver1 && !distractionGameBooleans.title) {
-    distractionGameBooleans.title = true; 
+  
+  if(distractionGameBooleans.mouseOver2 && distractionGameBooleans.title){
+    distractionGameBooleans.question1 = true;
+    distractionGameBooleans.endTitle = true;
   }
+
+  if(distractionGameBooleans.mouseOver3 && distractionGameBooleans.title){
+    distractionGameBooleans.question2 = true;
+    distractionGameBooleans.endTitle = true;
+  }
+
+  if(distractionGameBooleans.mouseOver4 && distractionGameBooleans.title){
+    distractionGameBooleans.question3 = true;
+    distractionGameBooleans.endTitle = true;
+  }
+
+  if(distractionGameBooleans.mouseOver1 && !distractionGameBooleans.title){
+    distractionGameBooleans.title = true;
+    return;
+  } else if (distractionGameBooleans.mouseOver1 && distractionGameBooleans.title && distractionGameBooleans.endTitle){
+    if(levelArray[0].miniGame == 4 && !levelArray[0].played){
+      levelArray[0].played = true;
+    } else if(levelArray[1].miniGame == 4 && !levelArray[1].played){
+      levelArray[1].played = true;
+    } else if(levelArray[2].miniGame == 4 && !levelArray[2].played){
+      levelArray[2].played = true;
+    }
+    return;
+  }
+
+
 
   //__________MiniGame 5__________\\
 
@@ -268,15 +317,15 @@ function mouseClicked() {
   var a = mouseX < windowWidth/2;
   var b =  mouseX > windowWidth/2;
 
-  if(frameCount > 200 && a && levelArray[0].played == false && levelArray[0].minigame != 3){
+  if(frameCount > 200 && a && levelArray[0].played == false && levelArray[0].minigame != 3 && levelArray[0].miniGame != 4){
     levelArray[0].played = true; 
   }
 
-  if( b && levelArray[0].played === true && levelArray[1].played === false && levelArray[1].miniGame != 3){
+  if( b && levelArray[0].played === true && levelArray[1].played === false && levelArray[1].miniGame != 3 && levelArray[1].miniGame != 4){
     levelArray[1].played = true;
   }
 
-  if(a && levelArray[1].played == true && levelArray[2].played == false && levelArray[2].miniGame != 3){
+  if(a && levelArray[1].played == true && levelArray[2].played == false && levelArray[2].miniGame != 3 && levelArray[2].miniGame != 4){
     levelArray[2].played = true;
   }
   
@@ -309,7 +358,6 @@ function miniGame2() {
 
 function miniGame3() {
   background(testColours[3]);
-  text("MiniGame 3", windowWidth/2, windowHeight/2);
   spellingGame();
 
 }
@@ -329,6 +377,12 @@ function miniGame5() {
 function miniGame6() {
   background(testColours[6]);
   text("MiniGame 6", windowWidth/2, windowHeight/2);
+
+}
+
+function endScreen() {
+  background(0);
+  text("Thanks for playing", wWidth/2, wHeight/2);
 
 }
 
