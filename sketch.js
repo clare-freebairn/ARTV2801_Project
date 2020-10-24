@@ -3,7 +3,7 @@ var colours = ["#0A58F5", "#1577E8", "#EB0071", "#F70C63"];
 var testColours = ["#05A8AA", "#B8D5B8", "#D7B49E", "#DC602E", "#BC412B", "#2F0A28", "#2E4057"]
 
 var LoremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irur"
-
+var titleScreenCount = 50;
 var miniGames = [1, 2, 3, 4, 5, 6];
 var levelArray = [];
 var distractionSound
@@ -37,14 +37,14 @@ function draw() { // This function is called and loops every frame
 
 }
 
-function playLevels() {
+function playLevels() { 
   //This function uses the booleans in the functions below to determine which level to play. 
 
-  if(frameCount < 200) {
+  if(frameCount < titleScreenCount) {
     titleScreen();
   }
 
-  if(frameCount > 200 && levelArray[0].played == false){
+  if(frameCount > titleScreenCount && levelArray[0].played == false){
     levelArray[0].getMiniGame();
   }
 
@@ -61,11 +61,15 @@ function playLevels() {
   }
 }
 
-function setGameLevels() {
+function setGameLevels() {///In here first and second minigame are set to 3 and 4, remove this after testing
   // This function takes the array created in the chooseGameLevel function, 
   //and creates an object that can
   // be used to play and record the right levels. 
   gameLevel = chooseMiniGames();
+
+  //remove two lines below after testing, this ensures the first two games are 3 and 4. 
+  gameLevel[0] = 4;
+  gameLevel[1] = 3;
 
   levelArray = [{
     miniGame: gameLevel[0],
@@ -295,15 +299,18 @@ function mouseClicked() {
   if(distractionGameBooleans.mouseOver1 && !distractionGameBooleans.title){
     distractionGameBooleans.title = true;
     return;
-  } else if (distractionGameBooleans.mouseOver1 && distractionGameBooleans.title && distractionGameBooleans.endTitle){
+  } else if (distractionGameBooleans.mouseOver1 && distractionGameBooleans.title && distractionGameBooleans.endTitle ){
     if(levelArray[0].miniGame == 4 && !levelArray[0].played){
       levelArray[0].played = true;
+      return;
     } else if(levelArray[1].miniGame == 4 && !levelArray[1].played){
       levelArray[1].played = true;
+      return;
     } else if(levelArray[2].miniGame == 4 && !levelArray[2].played){
       levelArray[2].played = true;
+      return;
     }
-    return;
+    
   }
 
 
@@ -317,7 +324,7 @@ function mouseClicked() {
   var a = mouseX < windowWidth/2;
   var b =  mouseX > windowWidth/2;
 
-  if(frameCount > 200 && a && levelArray[0].played == false && levelArray[0].minigame != 3 && levelArray[0].miniGame != 4){
+  if(frameCount > titleScreenCount && a && levelArray[0].played == false && levelArray[0].minigame != 3 && levelArray[0].miniGame != 4){
     levelArray[0].played = true; 
   }
 

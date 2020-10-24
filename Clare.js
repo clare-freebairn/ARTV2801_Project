@@ -102,30 +102,32 @@ function distractionAnswers() {
     rect(distractionButtons[1].x, distractionButtons[1].y, distractionButtons[1].w, distractionButtons[1].h);
     fill(distractionButtons[1].text);
     noStroke();
-    text("Answer 1", distractionButtons[1].x  + distractionButtons[1].w/2, distractionButtons[1].y + distractionButtons[1].h / 2);
+    textSize(15);
+    text("Pardon?", distractionButtons[1].x  + distractionButtons[1].w/2, distractionButtons[1].y + distractionButtons[1].h / 2);
     fill(distractionButtons[2].colour);
     strokeWeight(20);
     stroke(distractionButtons[2].stroke);
     rect(distractionButtons[2].x, distractionButtons[2].y, distractionButtons[2].w, distractionButtons[2].h);
     fill(distractionButtons[2].text);
     noStroke();
-    text("Answer 2", distractionButtons[2].x + distractionButtons[1].w/2, distractionButtons[2].y + distractionButtons[2].h / 2);
+    text("You don’t just “Get it”", distractionButtons[2].x + distractionButtons[1].w/2, distractionButtons[2].y + distractionButtons[2].h / 2 - 10);
+    text("I’ve always had it…", distractionButtons[2].x + distractionButtons[1].w/2, distractionButtons[2].y + distractionButtons[2].h / 2) + 10;
     fill(distractionButtons[3].colour);
     strokeWeight(20);
     stroke(distractionButtons[3].stroke);
     rect(distractionButtons[3].x, distractionButtons[3].y, distractionButtons[3].w, distractionButtons[3].h);
     fill(distractionButtons[3].text);
     noStroke();
-    text("Answer 3", distractionButtons[3].x + distractionButtons[1].w/2, distractionButtons[3].y + distractionButtons[3].h / 2);
+    text("I’m off, enjoy your coffee", distractionButtons[3].x + distractionButtons[1].w/2, distractionButtons[3].y + distractionButtons[3].h / 2);
     pop();    
 }
 
 function setDistractionButtons(){
     distractionButtons = [
         {x: wWidth*0.48, y: wHeight*0.75, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}, 
-        {x: wWidth*0.25 - wWidth*0.25/2, y: wHeight*0.5, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}, 
+        {x: wWidth*0.2 - wWidth*0.25/2, y: wHeight*0.5, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}, 
         {x: wWidth*0.5 - wWidth*0.25/2, y: wHeight*0.5, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]},
-        {x: wWidth*0.75 - wWidth*0.25/2, y: wHeight*0.5, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}]
+        {x: wWidth*0.8 - wWidth*0.25/2, y: wHeight*0.5, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}]
 
 }
 
@@ -176,8 +178,9 @@ function distractionGameEndTitle() {
     fill(distractionButtons[1].text);
     noStroke();
     text("Feeling confused?", wWidth*0.5, wHeight*0.5);
-    text("Some people with dyslexia experience sensory overload and distraction in every day settings.", wWidth*0.5, wHeight*0.5 + 30);
-    text("This game, Distraction was a representation of this.", wWidth*0.5, wHeight*0.5 + 60);
+    text("Some people with dyslexia experience sensory ", wWidth*0.5, wHeight*0.5 + 30);
+    text("overload and distraction in every day settings.", wWidth*0.5, wHeight*0.5 + 60);
+    text("This game, Distraction was a representation of those feelings.", wWidth*0.5, wHeight*0.5 + 90);
     fill(distractionButtons[0].text);
     text("Next Game", distractionButtons[0].x, distractionButtons[0].y + distractionButtons[0].h/2);
 }
