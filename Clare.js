@@ -1,8 +1,5 @@
 var colour = [0, 50, 100, 150, 200, 250];
-//TODO
-//- fucking help me
-//- create first page and initialise mp3
-//- 
+
 //-------------------------------------MiniGame 4 Distraction Game---------------------------------\\v
 var distractionGameCalls = 0;
 var distractionButtons;

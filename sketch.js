@@ -68,7 +68,7 @@ function setGameLevels() {///In here first and second minigame are set to 3 and 
   gameLevel = chooseMiniGames();
 
   //remove two lines below after testing, this ensures the first two games are 3 and 4. 
-  gameLevel[0] = 4;
+  gameLevel[0] = 1;
   gameLevel[1] = 3;
 
   levelArray = [{
@@ -353,7 +353,7 @@ function titleScreen() {
 // files for whoever is coding each minigame so that this file doesnt become cluttered. 
 function miniGame1() {
   background(testColours[1]);
-  text("MiniGame 1", windowWidth/2, windowHeight/2);
+  comprehensionGame();
 
 }
 
@@ -390,34 +390,6 @@ function miniGame6() {
 function endScreen() {
   background(0);
   text("Thanks for playing", wWidth/2, wHeight/2);
-
-}
-
-function typeFont() {
-  fill("#0A58F5")
-  rect(0, 200, 400, 100);
-
-  fill("#1577E8")
-  text("Neseccary Necessary", 100, 250);
-
-  fill("#EB0071")
-  rect(400, 200, 400, 100);
-
-  fill("#F70CF0")
-  text("World Would", 420, 250);
-
-
-}
-
-function loremIpsum() {
-
-  fill(random(0, 255), random(0, 250), random(0, 255));
-
-  rect(0, 0, 800, 400);
-
-  fill(255);
-
-  text(LoremIpsum, 0, 0, 800, 400)
 
 }
 
