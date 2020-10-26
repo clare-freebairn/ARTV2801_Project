@@ -11,120 +11,76 @@
 // which are the width and height of the screen the game is being played on
 //This means no matter what size screen people have, the game should fill their screen. 
 
+
+
+ 
+
+//--------------------------------------Clare Code-------------------------------------------//
+var comprehensionGameBooleans = {playing: false, mouseOver1: false, mouseOver2: false, mouseOver3: false, mouseOver4: false, title: true, answer1: false, answer2: false, answer3: false, endTitle: false};
 var comprehensionColours = [255, 0]//I added this variable where you can store your colours, just makes them easier to use/change
+var comprehensionText = ["A bit about the game"]
 
 //This function should contain all the function calls that your game recquires to work. 
-//this is called in MiniGame 1, and that is where your game will play from. 
+//this is called in MiniGame 1, and that is where your game will play from.
 function comprehensionGame() {
     push();//gets rid of all my style presets (like text size. strokeweight and such) so you have a clean slate
-    rectMode(CENTER); //Makes it so that the x y coords given to the rect(x, y, w, h); the centre
-    fill(comprehensionColours[0]);//the fill and rect functions just recreate your canvas within the game environment
-    rect(wWidth/2, wHeight/2, 300, 300); 
-    
-    let p = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-    
-    fill(comprehensionColours[1]); //Makes the text colour black
-    text(p, wWidth/2, wHeight/2, 300, 300); // Text wraps within text box
-    //loadFont(times);
+    comprehensionGameBooleans.playing = true;
+    setComprehensionButtons();
+    drawComprehensionButtons();
+    comprehensionMouseOver();
 
     pop();//Clears your presets so they dont affect the functions after.    
 }
 
-// word scramble, using  jquery to interact with html elements
-$(function () {
-    var getTextNodesIn = function (el) { // Look at all the page elements and returns the text nodes
-        return $(el).find(":not(iframe,script)").addBack().contents().filter(function () {
-            return this.nodeType == 3; // Text node types are type 3
-        });
-    };
 
-    // var textNodes = getTextNodesIn($("p, h1, h2, h3","*"));
-    var textNodes = getTextNodesIn($("p"));
 
-    function isLetter(char) {
-        return /^[\d]$/.test(char);
+function setComprehensionButtons() {
+    comprehensionButtons = [
+        {x: wWidth*0.48, y: wHeight*0.75, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}, 
+        {x: wWidth*0.2 - wWidth*0.25/2, y: wHeight*0.5, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}, 
+        {x: wWidth*0.5 - wWidth*0.25/2, y: wHeight*0.5, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]},
+        {x: wWidth*0.8 - wWidth*0.25/2, y: wHeight*0.5, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}]
+}
+
+function drawComprehensionButtons() {
+    //Text title 
+    fill(comprehensionButtons[0].colour)
+    text("Comprehension Test", wWidth*0.5, wHeight*0.25);
+
+    rectMode(CENTER);
+    text(comprehensionText, wWidth*0.5, wHeight*0.5, wWidth*0.3, wHeight*0.25);
+    rectMode(CORNER);
+    text("on return, click to continue", wWidth*0.5, wHeight*0.5);
+
+    //obligatory click to continue
+
+    //Go Button
+    fill(comprehensionButtons[0].colour);
+    strokeWeight(20);
+    stroke(comprehensionButtons[0].stroke);
+    rect(comprehensionButtons[0].x - comprehensionButtons[0].w/2, comprehensionButtons[0].y, comprehensionButtons[0].w, comprehensionButtons[0].h);
+    fill(comprehensionButtons[0].text);
+    noStroke();
+    
+    if(comprehensionGameBooleans.title){
+        text("Start", comprehensionButtons[0].x, comprehensionButtons[0].y + comprehensionButtons[0].h/2);
+    } else if(!comprehensionGameBooleans.title){
+        text("Next Game", comprehensionButtons[0].x, comprehensionButtons[0].y + comprehensionButtons[0].h/2);
     }
 
-    var wordsInTextNodes = [];
-    for (var i = 0; i < textNodes.length; i++) {
-        var node = textNodes[i];
+    //End text
 
-        var words = []
+    //Next button
+    
+}
 
-        var re = /\w+/g;
-        var match;
-        while ((match = re.exec(node.nodeValue)) != null) {
-
-            var word = match[0];
-            var position = match.index;
-
-            words.push({
-                length: word.length,
-                position: position
-            });
-        }
-
-        wordsInTextNodes[i] = words;
-    };
-
-    function messUpWords() {
-
-        for (var i = 0; i < textNodes.length; i++) {
-
-            var node = textNodes[i];
-
-            for (var j = 0; j < wordsInTextNodes[i].length; j++) {
-
-                // Only change a tenth of the words each round.
-                if (Math.random() > 1 / 10) {
-
-                    continue;
-                }
-
-                var wordMeta = wordsInTextNodes[i][j];
-
-                var word = node.nodeValue.slice(wordMeta.position, wordMeta.position + wordMeta.length);
-                var before = node.nodeValue.slice(0, wordMeta.position);
-                var after = node.nodeValue.slice(wordMeta.position + wordMeta.length);
-
-                node.nodeValue = before + messUpWord(word) + after;
-            };
-        };
-    }
-
-    function messUpWord(word) {
-
-        if (word.length < 3) {
-
-            return word;
-        }
-
-        return word[0] + messUpMessyPart(word.slice(1, -1)) + word[word.length - 1];
-    }
-
-    function messUpMessyPart(messyPart) {
-
-        if (messyPart.length < 2) {
-
-            return messyPart;
-        }
-
-        var a, b;
-        while (!(a < b)) {
-
-            a = getRandomInt(0, messyPart.length - 1);
-            b = getRandomInt(0, messyPart.length - 1);
-        }
-
-        return messyPart.slice(0, a) + messyPart[b] + messyPart.slice(a + 1, b) + messyPart[a] + messyPart.slice(b + 1);
-    }
-
-    // From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-    function getRandomInt(min, max) {
-
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    }
-
-
-    setInterval(messUpWords, 50);
-});
+function comprehensionMouseOver() {
+    var a = mouseX > comprehensionButtons[0].x - comprehensionButtons[0].w/2 && mouseX < comprehensionButtons[0].x - comprehensionButtons[0].w/2 + comprehensionButtons[0].w;
+  var b = mouseY > comprehensionButtons[0].y && mouseY < comprehensionButtons[0].y + comprehensionButtons[0].h;
+  if(a && b && (comprehensionGameBooleans.title || !comprehensionGameBooleans.endTitle)){
+    comprehensionButtons[0].colour = colour[4];
+    comprehensionButtons[0].stroke = colour[0];
+    comprehensionButtons[0].text = colour[2];
+    comprehensionGameBooleans.mouseOver1 = true;
+  } else { comprehensionGameBooleans.mouseOver1 = false; }
+}

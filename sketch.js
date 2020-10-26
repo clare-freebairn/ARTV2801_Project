@@ -223,6 +223,27 @@ function mouseClicked() {
   //the formatting, as this function is likely to get very long. 
   // __________MiniGame 1_________\\
 
+  if(comprehensionGameBooleans.mouseOver1 && comprehensionGameBooleans.title && comprehensionGameBooleans.playing){
+    comprehensionGameBooleans.title = false;
+    window.open("comprehension.html");//Opens the html game in a different window
+    return;
+  } else if (comprehensionGameBooleans.mouseOver1 && !comprehensionGameBooleans.title && comprehensionGameBooleans.playing){
+    if(levelArray[0].miniGame == 1 && !comprehensionGameBooleans.title){
+      levelArray[0].played = true;
+      comprehensionGameBooleans.playing = false;
+      return;
+    } else if(levelArray[1].miniGame == 1 && !comprehensionGameBooleans.title){
+      levelArray[1].played = true;
+      comprehensionGameBooleans.playing = false;
+      return;
+    } else if(levelArray[2].miniGame == 1 && !comprehensionGameBooleans.title){
+      levelArray[2].played = true;
+      comprehensionGameBooleans.playing = false;
+      return;
+    }
+    
+  }
+
   //__________MiniGame 2__________\\
 
   //__________MiniGame 3__________\\
@@ -324,15 +345,15 @@ function mouseClicked() {
   var a = mouseX < windowWidth/2;
   var b =  mouseX > windowWidth/2;
 
-  if(frameCount > titleScreenCount && a && levelArray[0].played == false && levelArray[0].minigame != 3 && levelArray[0].miniGame != 4){
+  if(frameCount > titleScreenCount && a && levelArray[0].played == false && levelArray[0].minigame != 3 && levelArray[0].miniGame != 4 && levelArray[0].miniGame != 1){
     levelArray[0].played = true; 
   }
 
-  if( b && levelArray[0].played === true && levelArray[1].played === false && levelArray[1].miniGame != 3 && levelArray[1].miniGame != 4){
+  if( b && levelArray[0].played === true && levelArray[1].played === false && levelArray[1].miniGame != 3 && levelArray[1].miniGame != 4 && levelArray[1].miniGame != 1){
     levelArray[1].played = true;
   }
 
-  if(a && levelArray[1].played == true && levelArray[2].played == false && levelArray[2].miniGame != 3 && levelArray[2].miniGame != 4){
+  if(a && levelArray[1].played == true && levelArray[2].played == false && levelArray[2].miniGame != 3 && levelArray[2].miniGame != 4 && levelArray[2].miniGame != 1){
     levelArray[2].played = true;
   }
   

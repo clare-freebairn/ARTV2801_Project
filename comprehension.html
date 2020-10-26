@@ -323,8 +323,8 @@
         <!-- unsure weather to make button give joke response -->
 
         <button onclick="myFunction()">Final Answer </button>
+        <button onclick="go_home()">Go Home</button>
         <!--   <button onclick="submitAnswer()">Submit Answer</button> -->
-
         <script>
             function myFunction() {
                 answers = [
@@ -335,15 +335,17 @@
                     "Try again with a different font",
                     "Maybe you need glasses..."
                 ];
-
                 alert(answers[1]); // issue with randomising array
 
-
+            }
+            function go_home(){
+                
+                window.close();//Close to go back to the original game 
             }
 
 
-
         </script>
+    </div>
 
     </div>
 
