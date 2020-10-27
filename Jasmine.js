@@ -50,7 +50,7 @@ function drawComprehensionButtons() {
     rectMode(CENTER);
     text(comprehensionText, wWidth*0.5, wHeight*0.5, wWidth*0.3, wHeight*0.25);
     rectMode(CORNER);
-    text("on return, click to continue", wWidth*0.5, wHeight*0.5);
+    text("when you press start you will be taken to a new tab for this game", wWidth*0.5, wHeight*0.5, 100, 100);
 
     //obligatory click to continue
 
