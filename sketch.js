@@ -68,7 +68,8 @@ function setGameLevels() {///In here first and second minigame are set to 3 and 
   gameLevel = chooseMiniGames();
 
   //remove two lines below after testing, this ensures the first two games are 3 and 4. 
-  gameLevel[0] = 1;
+  gameLevel[0] = 1
+  ;
   gameLevel[1] = 3;
   gameLevel[2] = 4;
 
