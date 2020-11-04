@@ -12,9 +12,11 @@ let wHeight;
 
 function preload() {
   distractionSound = loadSound('assets/FinsihedSoundForQuestion.mp3');
+  euphemiaUCAS = loadFont('assets/Euphemia UCAS_Regular_2.6.6.ttf');
 }
 
 function setup() { // This function is called once at the beginning and never again. 
+  textFont(euphemiaUCAS)
   createCanvas(windowWidth, windowHeight);
   background(0, 0, 200);
   frameRate(20);
@@ -24,6 +26,7 @@ function setup() { // This function is called once at the beginning and never ag
 
   wWidth = windowWidth;
   wHeight = windowHeight;
+  corners = [wHeight*0.005, wHeight*0.02, wHeight*0.04];
   hexagonSetup();
 
 }
@@ -70,6 +73,7 @@ function setGameLevels() {///In here first and second minigame are set to 3 and 
   //remove two lines below after testing, this ensures the first two games are 3 and 4. 
   gameLevel[0] = 1;
   gameLevel[1] = 3;
+  gameLevel[2] = 4;
 
   levelArray = [{
     miniGame: gameLevel[0],
@@ -217,7 +221,7 @@ function chooseMiniGames() {
 // This is the mouseClicked function, anything that needs to happen on a mouseClick should go in this function
 
 function mouseClicked() {
-  print("clicked")
+  print("clicked", mouseX, mouseY)
   var clicked = false;
   // Please keep this function as tidy as possible and follow 
   //the formatting, as this function is likely to get very long. 

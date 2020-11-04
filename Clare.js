@@ -1,5 +1,5 @@
 var colour = [0, 50, 100, 150, 200, 250];
-
+var corners
 //-------------------------------------MiniGame 4 Distraction Game---------------------------------\\v
 var distractionGameCalls = 0;
 var distractionButtons;
@@ -23,12 +23,10 @@ function distractionGame() {
 
 function distractionGameTitle() {
     push();
-    fill(distractionButtons[0].colour);
-    strokeWeight(20);
-    stroke(distractionButtons[0].stroke);
-    rect(distractionButtons[0].x - distractionButtons[0].w/2, distractionButtons[0].y, distractionButtons[0].w, distractionButtons[0].h);
-    fill(distractionButtons[1].text);
     noStroke();
+    fill(distractionButtons[0].colour);
+    rect(distractionButtons[0].x - distractionButtons[0].w/2, distractionButtons[0].y, distractionButtons[0].w, distractionButtons[0].h, corners[2]);
+    fill(distractionButtons[1].text);
     text("Distraction", wWidth*0.5, wHeight*0.25);
     text("You are at a coffee shop with a friend", wWidth*0.5, wHeight*0.5);
     text("they are telling you a story about themselves.", wWidth*0.5, wHeight*0.5 + 30);
@@ -45,25 +43,56 @@ function distractionHexagons() {
       distractionSound.play();
   }
   push();
+  //Middle
   hexagons(wWidth/2, wHeight/2);
   pop();
   push();
-  hexagons(wWidth/2, wHeight/2 - 400);
+  //Middle Top
+  hexagons(wWidth/2 + 43, wHeight/2 - 400 + 25);
   pop();
   push();
-  hexagons(wWidth/2, wHeight/2 + 400);
+  //Bottom Middle
+  hexagons(wWidth/2 - 43, wHeight/2 + 400 - 25);
   pop();
   push();
-  hexagons(wWidth/2 - 300, wHeight/2 -200);
+  //Top left
+  hexagons(wWidth/2 - 300, wHeight/2 - 200 - 25);
   pop();
   push();
-  hexagons(wWidth/2 - 300, wHeight/2 +200);
+  //Bottom Left
+  hexagons(wWidth/2 - 300 - 43, wHeight/2 + 200 - 50);
   pop();
   push();
-  hexagons(wWidth/2 + 300, wHeight/2 -200);
+  //Top right
+  hexagons(wWidth/2 + 300 + 46, wHeight/2 - 200 + 50);
   pop();
   push();
-  hexagons(wWidth/2 + 300, wHeight/2 +200);
+  //Bottom Right
+  hexagons(wWidth/2 + 300 + 3, wHeight/2 + 200 + 25);
+  pop();
+  push();
+  //Far top right
+  hexagons(wWidth/2 - 600 - 43, wHeight/2 - 400 + 25);
+  pop();
+  //Far left Middle 
+  push();
+  hexagons(wWidth/2 - 600, wHeight/2);
+  pop();
+  //Far right Middle 
+  push();
+  hexagons(wWidth/2 + 600 + 43, wHeight/2 + 75);
+  pop();
+  //Bottom Far Left
+  push();
+  hexagons(wWidth/2 - 600 - 43, wHeight/2 + 400 - 25);
+  pop();
+  //Bottom Far Right
+  push();
+  hexagons(wWidth/2 + 600 + 3, wHeight/2 + 400 + 50);
+  pop();
+  push();
+  //Top left
+  hexagons(wWidth/2 + 600 + 86, wHeight/2 - 200 - 100);
   pop();
 
   distractionGameCalls += 1;
@@ -93,35 +122,29 @@ function hexagons(centreWidth, centreHeight) {
 
 function distractionAnswers() {
     push();
-    fill(distractionButtons[1].colour);
-    strokeWeight(20);
-    stroke(distractionButtons[1].stroke);
-    rect(distractionButtons[1].x, distractionButtons[1].y, distractionButtons[1].w, distractionButtons[1].h);
-    fill(distractionButtons[1].text);
     noStroke();
-    textSize(15);
+    fill(distractionButtons[1].colour);
+    rect(distractionButtons[1].x, distractionButtons[1].y, distractionButtons[1].w, distractionButtons[1].h, corners[1], corners[2], corners[1], corners[0]);
+    fill(distractionButtons[1].text);
+    textSize(20);
     text("Pardon?", distractionButtons[1].x  + distractionButtons[1].w/2, distractionButtons[1].y + distractionButtons[1].h / 2);
     fill(distractionButtons[2].colour);
-    strokeWeight(20);
-    stroke(distractionButtons[2].stroke);
-    rect(distractionButtons[2].x, distractionButtons[2].y, distractionButtons[2].w, distractionButtons[2].h);
+    rect(distractionButtons[2].x, distractionButtons[2].y, distractionButtons[2].w, distractionButtons[2].h, corners[1], corners[2], corners[1], corners[0]);
     fill(distractionButtons[2].text);
     noStroke();
     text("You don’t just “Get it”", distractionButtons[2].x + distractionButtons[1].w/2, distractionButtons[2].y + distractionButtons[2].h / 2 - 10);
-    text("I’ve always had it…", distractionButtons[2].x + distractionButtons[1].w/2, distractionButtons[2].y + distractionButtons[2].h / 2) + 10;
+    text("I’ve always had it…", distractionButtons[2].x + distractionButtons[1].w/2, distractionButtons[2].y + distractionButtons[2].h / 2 + 30);
     fill(distractionButtons[3].colour);
-    strokeWeight(20);
-    stroke(distractionButtons[3].stroke);
-    rect(distractionButtons[3].x, distractionButtons[3].y, distractionButtons[3].w, distractionButtons[3].h);
+    rect(distractionButtons[3].x, distractionButtons[3].y, distractionButtons[3].w, distractionButtons[3].h, corners[1], corners[2], corners[1], corners[0]);
     fill(distractionButtons[3].text);
     noStroke();
-    text("I’m off, enjoy your coffee", distractionButtons[3].x + distractionButtons[1].w/2, distractionButtons[3].y + distractionButtons[3].h / 2);
+    text("I’m off, enjoy your coffee", distractionButtons[3].x + distractionButtons[1].w/2 - 5, distractionButtons[3].y + distractionButtons[3].h / 2 );
     pop();    
 }
 
 function setDistractionButtons(){
     distractionButtons = [
-        {x: wWidth*0.48, y: wHeight*0.75, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}, 
+        {x: wWidth*0.5, y: wHeight*0.75, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}, 
         {x: wWidth*0.2 - wWidth*0.25/2, y: wHeight*0.5, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}, 
         {x: wWidth*0.5 - wWidth*0.25/2, y: wHeight*0.5, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]},
         {x: wWidth*0.8 - wWidth*0.25/2, y: wHeight*0.5, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}]
@@ -168,12 +191,10 @@ function distractionMouseOver() {
 }
 
 function distractionGameEndTitle() {
-    fill(distractionButtons[0].colour);
-    strokeWeight(20);
-    stroke(distractionButtons[0].stroke);
-    rect(distractionButtons[0].x - distractionButtons[0].w/2, distractionButtons[0].y, distractionButtons[0].w, distractionButtons[0].h);
-    fill(distractionButtons[1].text);
     noStroke();
+    fill(distractionButtons[0].colour);
+    rect(distractionButtons[0].x - distractionButtons[0].w/2, distractionButtons[0].y, distractionButtons[0].w, distractionButtons[0].h, corners[2]);
+    fill(distractionButtons[1].text);
     text("Feeling confused?", wWidth*0.5, wHeight*0.5);
     text("Some people with dyslexia experience sensory ", wWidth*0.5, wHeight*0.5 + 30);
     text("overload and distraction in every day settings.", wWidth*0.5, wHeight*0.5 + 60);
@@ -194,8 +215,6 @@ function colorFromPalette(n) {
 }
 
 function hexagonSetup() {
-    
-
   h = Math.sqrt(3) / 2 * 100;
 
   shapes = createGraphics(100, Math.ceil(h));
@@ -315,18 +334,15 @@ function spellingGameAfterTitle() {
 
 function spellingGameTitle() {
     push();
+    noStroke();
     fill(buttonPlacement[0].text);
     text("Spelling Game", wWidth*0.5, wHeight*0.25);
     text("For each question select the correct answer.", wWidth*0.5, wHeight*0.5);
     fill(buttonPlacement[4].colour);
-    strokeWeight(20);
-    stroke(buttonPlacement[4].stroke);
-    rect(buttonPlacement[4].x - buttonPlacement[4].w/2, buttonPlacement[4].y, buttonPlacement[4].w, buttonPlacement[4].h);
+    rect(buttonPlacement[4].x - buttonPlacement[4].w/2, buttonPlacement[4].y, buttonPlacement[4].w, buttonPlacement[4].h, corners[2]);
     fill(buttonPlacement[4].text);
-    noStroke();
     text("Start", buttonPlacement[4].x, buttonPlacement[4].y + buttonPlacement[4].h/2);
     pop()
-
 }
 
 function setButtons(){
@@ -335,7 +351,7 @@ function setButtons(){
         {x: wWidth*0.125, y: wHeight*0.5, w: wWidth*0.333, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}, 
         {x: wWidth*0.52, y: wHeight*0.5, w: wWidth*0.333, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]},
         {x: 10, y: 10, w: 10, h: 10, colour: colour[2], stroke: colour[1], text: colour[4]},
-        {x: wWidth*0.48, y: wHeight*0.75, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}]
+        {x: wWidth*0.5, y: wHeight*0.75, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}]
 }
 
 function mouseIsOverButtons() {
@@ -375,20 +391,17 @@ function mouseIsOverButtons() {
 
 function spellingButtons() {
     push();
-    strokeWeight(20);
+    noStroke();
     // draw the text boxes, and set their fill colour to the one specified in the array 
     //Question Text Box
     fill(buttonPlacement[0].colour);
-    stroke(buttonPlacement[0].stroke);
-    rect(buttonPlacement[0].x, buttonPlacement[0].y, buttonPlacement[0].w, buttonPlacement[0].h);
+    rect(buttonPlacement[0].x, buttonPlacement[0].y, buttonPlacement[0].w, buttonPlacement[0].h, corners[2]);
     //Left Text Box
     fill(buttonPlacement[1].colour);
-    stroke(buttonPlacement[1].stroke);
-    rect(buttonPlacement[1].x, buttonPlacement[1].y, buttonPlacement[1].w, buttonPlacement[1].h);
+    rect(buttonPlacement[1].x, buttonPlacement[1].y, buttonPlacement[1].w, buttonPlacement[1].h, corners[1], corners[2], corners[1], corners[0]);
     //Right Text Box
     fill(buttonPlacement[2].colour);
-    stroke(buttonPlacement[2].stroke);
-    rect(buttonPlacement[2].x, buttonPlacement[2].y, buttonPlacement[2].w, buttonPlacement[2].h);
+    rect(buttonPlacement[2].x, buttonPlacement[2].y, buttonPlacement[2].w, buttonPlacement[2].h, corners[1], corners[2], corners[1], corners[0]);
     pop();
     // console.log(mouseX, mouseY);
 }
@@ -469,10 +482,7 @@ function spellingGameEndTitle() {
     text(endTitleTextMinigame3[2], wWidth/2, wHeight/2 + 30);
     text(endTitleTextMinigame3[3], wWidth/2, wHeight/2 + 60);
     fill(buttonPlacement[4].colour);
-    strokeWeight(20);
-    stroke(buttonPlacement[4].stroke);
-    rect(buttonPlacement[4].x - buttonPlacement[4].w/2, buttonPlacement[4].y, buttonPlacement[4].w, buttonPlacement[4].h);
+    rect(buttonPlacement[4].x - buttonPlacement[4].w/2, buttonPlacement[4].y, buttonPlacement[4].w, buttonPlacement[4].h, corners[2]);
     fill(buttonPlacement[4].text);
-    noStroke();
     text("Next Game", buttonPlacement[4].x, buttonPlacement[4].y + buttonPlacement[4].h/2);
 }
