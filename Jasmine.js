@@ -43,7 +43,10 @@ function setComprehensionButtons() {
 
 function drawComprehensionButtons() {
     //Text title 
-    fill(comprehensionButtons[1].colour)
+    fill(colour[2]);
+    rect(titleCards.x, titleCards.y, titleCards.w, titleCards.h, corners[1])
+    
+    fill(comprehensionButtons[1].text)
     text("Comprehension Test", wWidth*0.5, wHeight*0.25);
 
     rectMode(CENTER);

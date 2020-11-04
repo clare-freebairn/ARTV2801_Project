@@ -24,13 +24,15 @@ function distractionGame() {
 function distractionGameTitle() {
     push();
     noStroke();
+    fill(colour[2]);
+    rect(titleCards.x, titleCards.y, titleCards.w, titleCards.h, corners[1])
     fill(distractionButtons[0].colour);
     rect(distractionButtons[0].x - distractionButtons[0].w/2, distractionButtons[0].y, distractionButtons[0].w, distractionButtons[0].h, corners[2]);
     fill(distractionButtons[1].text);
     text("Distraction", wWidth*0.5, wHeight*0.25);
-    text("You are at a coffee shop with a friend", wWidth*0.5, wHeight*0.5);
-    text("they are telling you a story about themselves.", wWidth*0.5, wHeight*0.5 + 30);
-    text("What can you hear?", wWidth*0.5, wHeight*0.5 + 60);
+    rectMode(CENTER);
+    text("You are at a coffee shop with a friend they are telling you a story about themselves. What can you hear?", wWidth*0.5, wHeight*0.5, wWidth*0.25, wHeight*0.25);
+    rectMode(CORNER);
     fill(distractionButtons[0].text);
     text("Start", distractionButtons[0].x, distractionButtons[0].y + distractionButtons[0].h/2);
     pop();
@@ -111,7 +113,7 @@ function distractionHexagons() {
   pop();
 
   distractionGameCalls += 1;
-  if(distractionGameCalls >= 1300){
+  if(distractionGameCalls >= 1200){
       distractionAnswers();
   }
 }
@@ -147,13 +149,12 @@ function distractionAnswers() {
     rect(distractionButtons[2].x, distractionButtons[2].y, distractionButtons[2].w, distractionButtons[2].h, corners[1], corners[2], corners[1], corners[0]);
     fill(distractionButtons[2].text);
     noStroke();
-    text("You don’t just “Get it”", distractionButtons[2].x + distractionButtons[1].w/2, distractionButtons[2].y + distractionButtons[2].h / 2 - 10);
-    text("I’ve always had it…", distractionButtons[2].x + distractionButtons[1].w/2, distractionButtons[2].y + distractionButtons[2].h / 2 + 30);
+    text("You can't just “Get it”, I’ve always had it…", distractionButtons[2].x + distractionButtons[3].w*0.15, distractionButtons[2].y + distractionButtons[2].h*0.125, distractionButtons[2].w*0.75, distractionButtons[2].h*0.75);
     fill(distractionButtons[3].colour);
     rect(distractionButtons[3].x, distractionButtons[3].y, distractionButtons[3].w, distractionButtons[3].h, corners[1], corners[2], corners[1], corners[0]);
     fill(distractionButtons[3].text);
     noStroke();
-    text("I’m off, enjoy your coffee", distractionButtons[3].x + distractionButtons[1].w/2 - 5, distractionButtons[3].y + distractionButtons[3].h / 2 );
+    text("I’m off, enjoy your coffee", distractionButtons[3].x + distractionButtons[3].w*0.15, distractionButtons[3].y + distractionButtons[3].h*0.25, distractionButtons[3].w*0.75, distractionButtons[3].h*0.5);
     pop();    
 }
 
@@ -207,13 +208,15 @@ function distractionMouseOver() {
 
 function distractionGameEndTitle() {
     noStroke();
+    fill(colour[2]);
+    rect(titleCards.x, titleCards.y, titleCards.w, titleCards.h, corners[1])
     fill(distractionButtons[0].colour);
     rect(distractionButtons[0].x - distractionButtons[0].w/2, distractionButtons[0].y, distractionButtons[0].w, distractionButtons[0].h, corners[2]);
     fill(distractionButtons[1].text);
-    text("Feeling confused?", wWidth*0.5, wHeight*0.5);
-    text("Some people with dyslexia experience sensory ", wWidth*0.5, wHeight*0.5 + 30);
-    text("overload and distraction in every day settings.", wWidth*0.5, wHeight*0.5 + 60);
-    text("This game, Distraction was a representation of those feelings.", wWidth*0.5, wHeight*0.5 + 90);
+    text("Feeling confused?", wWidth*0.5, wHeight*0.25);
+    rectMode(CENTER);
+    text("Some people with dyslexia experience sensory overload and distraction in every day settings. This game, Distraction was a representation of those feelings.",  wWidth*0.5, wHeight*0.5, wWidth*0.25, wHeight*0.25);
+    rectMode(CORNER);
     fill(distractionButtons[0].text);
     text("Next Game", distractionButtons[0].x, distractionButtons[0].y + distractionButtons[0].h/2);
 }
@@ -322,6 +325,8 @@ var currentQText = [questionsMinigame3[0], answersMinigame3[0]];
 var spellingGameBooleans = {mouseOver1: false, mouseOver2: false, mouseOver3: false, started: false, question1: 0, question2: 0, question3: 0, question4: 0, endTitle: 0};
 var endTitleTextMinigame3 = [];
 var spellingGameCalls = 0;
+var spellingColours = ['#FFFFFF', '#E4EEFB', '#FAE0D4', '#FAF5D7', '#DEF7DF'];
+var swapColours = [spellingColours[0], spellingColours[1]];
 
 function spellingGame() {
         
@@ -350,6 +355,8 @@ function spellingGameAfterTitle() {
 function spellingGameTitle() {
     push();
     noStroke();
+    fill(swapColours[0]);
+    rect(titleCards.x, titleCards.y, titleCards.w, titleCards.h, corners[1])
     fill(buttonPlacement[0].text);
     text("Spelling Game", wWidth*0.5, wHeight*0.25);
     text("For each question select the correct answer.", wWidth*0.5, wHeight*0.5);
@@ -362,9 +369,9 @@ function spellingGameTitle() {
 
 function setButtons(){
     buttonPlacement = [
-        {x: wWidth*0.25, y: wHeight*0.125, w: wWidth*0.5, h: wHeight*0.25, colour: colour[2], stroke: colour[1], text: colour[4]}, 
-        {x: wWidth*0.125, y: wHeight*0.5, w: wWidth*0.333, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}, 
-        {x: wWidth*0.52, y: wHeight*0.5, w: wWidth*0.333, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]},
+        {x: wWidth*0.25, y: wHeight*0.125, w: wWidth*0.5, h: wHeight*0.25, colour: swapColours[1], stroke: colour[1], text: colour[2]}, 
+        {x: wWidth*0.125, y: wHeight*0.5, w: wWidth*0.333, h: wHeight*0.125, colour: swapColours[0], stroke: colour[1], text: swapColours[1]}, 
+        {x: wWidth*0.52, y: wHeight*0.5, w: wWidth*0.333, h: wHeight*0.125, colour: swapColours[0], stroke: colour[1], text: swapColours[1]},
         {x: 10, y: 10, w: 10, h: 10, colour: colour[2], stroke: colour[1], text: colour[4]},
         {x: wWidth*0.5, y: wHeight*0.75, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}]
 }
@@ -374,9 +381,8 @@ function mouseIsOverButtons() {
     var a = mouseX > buttonPlacement[1].x && mouseX < buttonPlacement[1].x + buttonPlacement[1].w;
     var b = mouseY > buttonPlacement[1].y && mouseY < buttonPlacement[1].y + buttonPlacement[1].h;
     if (a && b) {
-        buttonPlacement[1].colour = colour[4];
-        buttonPlacement[1].stroke = colour[0];
-        buttonPlacement[1].text = colour[2];
+        buttonPlacement[1].colour = swapColours[1];
+        buttonPlacement[1].text = swapColours[0];
         spellingGameBooleans.mouseOver1 = true;
     } else {
         spellingGameBooleans.mouseOver1 = false;
@@ -384,9 +390,8 @@ function mouseIsOverButtons() {
     var c = mouseX > buttonPlacement[2].x && mouseX < buttonPlacement[2].x + buttonPlacement[2].w;
     var d = mouseY > buttonPlacement[2].y && mouseY < buttonPlacement[2].y + buttonPlacement[2].h;
     if (c && d) {
-        buttonPlacement[2].colour = colour[4];
-        buttonPlacement[2].stroke = colour[0];
-        buttonPlacement[2].text = colour[2];
+        buttonPlacement[2].colour = swapColours[1];
+        buttonPlacement[2].text = swapColours[0];
         spellingGameBooleans.mouseOver2 = true;
     } else {
         spellingGameBooleans.mouseOver2 = false;
@@ -396,7 +401,6 @@ function mouseIsOverButtons() {
     var f = mouseY > buttonPlacement[4].y && mouseY < buttonPlacement[4].y + buttonPlacement[4].h;
     if (e && f && (!spellingGameBooleans.started || spellingGameBooleans.endTitle)) {
         buttonPlacement[4].colour = colour[4];
-        buttonPlacement[4].stroke = colour[0];
         buttonPlacement[4].text = colour[2];
         spellingGameBooleans.mouseOver3 = true;
     } else {
@@ -442,16 +446,19 @@ function changeSpellingGameText() {
 
     if(spellingGameBooleans.question1 != 0 && spellingGameBooleans.question2 == 0){
         currentQText = [questionsMinigame3[1], answersMinigame3[1]];
+        swapColours[1] = spellingColours[2];
         return;
     }
 
     if(spellingGameBooleans.question2 != 0 && spellingGameBooleans.question3 == 0){
         currentQText = [questionsMinigame3[2], answersMinigame3[2]];
+        swapColours[1] = spellingColours[3];
         return;
     }
 
     if(spellingGameBooleans.question3 != 0 && spellingGameBooleans.question4 == 0){
         currentQText = [questionsMinigame3[3], answersMinigame3[3]];
+        swapColours[1] = spellingColours[4];
         return;
     }
 }
@@ -487,6 +494,8 @@ function spellingGameEndTitle() {
     spellingGameScoring();
   
     push();
+    fill(swapColours[0]);
+    rect(titleCards.x, titleCards.y, titleCards.w, titleCards.h, corners[1])
     fill(buttonPlacement[3].text);
     noStroke();
     text("How is your Spelling?", wWidth/2, wHeight * 0.25);
