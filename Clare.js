@@ -71,8 +71,8 @@ function distractionHexagons() {
   hexagons(wWidth/2 + 300 + 3, wHeight/2 + 200 + 25);
   pop();
   push();
-  //Far top right
-  hexagons(wWidth/2 - 600 - 43, wHeight/2 - 400 + 25);
+  //Far top left
+  hexagons(wWidth/2 - 600 + 43, wHeight/2 - 400 + 25);
   pop();
   //Far left Middle 
   push();
@@ -90,9 +90,24 @@ function distractionHexagons() {
   push();
   hexagons(wWidth/2 + 600 + 3, wHeight/2 + 400 + 50);
   pop();
+  //Top Far Right
   push();
-  //Top left
   hexagons(wWidth/2 + 600 + 86, wHeight/2 - 200 - 100);
+  pop();
+  //Top above left
+  push();
+  hexagons(wWidth/2 - 300 + 43, wHeight/2 - 600);
+  pop();
+  push();
+  //Top right above
+  hexagons(wWidth/2 + 300 + 43, wHeight/2 - 400 - 50);
+  pop();
+  push();
+  //Bottom Right
+  hexagons(wWidth/2 + 300 + 3, wHeight/2 + 400 + 125);
+  pop();
+  push();
+  hexagons(wWidth/2 - 400 + 15, wHeight/2 + 500 + 25);
   pop();
 
   distractionGameCalls += 1;
