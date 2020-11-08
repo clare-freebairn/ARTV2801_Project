@@ -30,8 +30,7 @@ function distractionGameTitle() {
     rect(distractionButtons[0].x - distractionButtons[0].w/2, distractionButtons[0].y, distractionButtons[0].w, distractionButtons[0].h, corners[2]);
     fill(distractionButtons[1].text);
     text("Distraction", wWidth*0.5, wHeight*0.25);
-    rectMode(CENTER);
-    text("You are at a coffee shop with a friend they are telling you a story about themselves. What can you hear?", wWidth*0.5, wHeight*0.5, wWidth*0.25, wHeight*0.25);
+    text("You are at a coffee shop with a friend they are telling you a story about themselves. What can you hear?", titleCards.x - corners[0]/2, titleCards.y + titleCards.h*0.2, titleCards.w  - titleCards.w*0.125, titleCards.h);
     rectMode(CORNER);
     fill(distractionButtons[0].text);
     text("Start", distractionButtons[0].x, distractionButtons[0].y + distractionButtons[0].h/2);
@@ -315,9 +314,132 @@ function drawTriangle() {
     }
     pop();
   }
+//-------------------------------------Border------------------------------------------------------\\
+var LoremIpsum = 'Lorem vero eos et accus a mus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.';
+var LoremIpsumSet = 'Lorem vero eos et accus a mus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.';
+var lawyer = {size: 100, colour: 50, textColour: 200}
+var grow = {size: 200, colour: 150, textColour: 0}
+var right = {size: 200, colour: 150, textColour: 0}
+var bottom = {size: 250, colour: 100, textColour: 255}
+var letter = {size: 250, colour: 50, textColour: 200}
 
+
+function border() {
+    if (frameCount % 6 == 0) {
+        LoremIpsum = LoremIpsumSet
+    }
+    if (frameCount % 8 == 0) {
+        LoremIpsum = scramble(LoremIpsum);
+    }
+
+
+    //middle bottom square
+    push();
+    translate(windowWidth / 2, windowHeight);
+    rotate(QUARTER_PI);
+    borderSquare(lawyer);
+    pop();
+    //corner right square
+    push();
+    translate(windowWidth, windowHeight);
+    rotate(PI / 3.0);
+    borderSquare(grow);
+    pop();
+    //middle left bottom
+    push();
+    translate(-20, windowHeight / 2);
+    rotate(PI / 1.34);
+    borderSquare(right);
+    pop();
+    //corner left bottom
+    push();
+    translate(-20, windowHeight);
+    rotate(PI / 1.7);
+    borderSquare(bottom);
+    pop();
+    //right bottom almost quarter
+    push();
+    translate(windowWidth * 0.75, windowHeight + 80);
+    rotate(PI / 5);
+    borderSquare(bottom);
+    pop();
+    //left three quarter down
+    push();
+    translate(-20, windowHeight * 0.75);
+    rotate(PI / 1.2);
+    borderSquare(lawyer);
+    pop();
+    //top 1/3 left
+    push();
+    translate(windowWidth * 0.3, -80);
+    rotate(PI / 0.7);
+    borderSquare(right);
+    pop();
+    //top middle
+    push();
+    translate(windowWidth * 0.5, -100);
+    rotate(PI / 0.8);
+    borderSquare(bottom);
+    pop();
+    //top middle
+    push();
+    translate(windowWidth * 0.8, -80);
+    rotate(PI / 0.3);
+    borderSquare(letter);
+    pop();
+    //top middle
+    push();
+    translate(windowWidth, 0);
+    rotate(PI / 0.65);
+    borderSquare(grow);
+    pop();
+}
+
+
+function borderSquare(shape) {
+    push();
+    rectMode(CENTER);
+    noStroke();
+    fill(shape.colour);
+    rect(0, 0, shape.size, shape.size);
+    fill(shape.textColour);
+    textAlign(LEFT);
+    textSize(10);
+    text(LoremIpsum, 0, 0, shape.size, shape.size);
+    pop();
+
+
+}
+
+function scramble(words) {
+
+    var seperated = words.split(' ');
+    var newString = [];
+    for (word of seperated) {
+        var randomLetter = [];
+        for (i = 0; i < word.length; i++) {
+            randomLetter.push(i)
+        }
+        if (word.length > 3 && word.length <= 5) {
+            var chr = word[2];
+            word = word.replace(chr, word[random(randomLetter)]);
+            newString.push(word);
+        } else if (word.length > 5) {
+            chr = word[2];
+            word = word.replace(chr, word[random(randomLetter)]);
+            chr = word[5];
+
+            word = word.replace(chr, word[random(randomLetter)]);
+            newString.push(word);
+        } else {
+            newString.push(word);
+        }
+    }
+    temp = newString.toString(' ');
+    var result = temp.replace(/,/g, ' ');
+    return result;
+}
 //-------------------------------------MiniGame 3 Spelling Game-------------------------------------\\
-//Unfinished Title 
 var questionsMinigame3 = ["It's not ________ correct", "____ you be able to ____ this", "Does this ___ make it easier", "Why can't you _____ this?"];
 var answersMinigame3 = [["Necesarily", "Nessicarily"], ["Wuld/read", "Would/reed"], ["Fant", "Coler"], ["Lane", "Lern"]];
 var buttonPlacement;
@@ -359,7 +481,7 @@ function spellingGameTitle() {
     rect(titleCards.x, titleCards.y, titleCards.w, titleCards.h, corners[1])
     fill(buttonPlacement[0].text);
     text("Spelling Game", wWidth*0.5, wHeight*0.25);
-    text("For each question select the correct answer.", wWidth*0.5, wHeight*0.5);
+    text("For each question select the correct answer.", titleCards.x, wHeight*0.4, titleCards.w - corners[2], titleCards.h);
     fill(buttonPlacement[4].colour);
     rect(buttonPlacement[4].x - buttonPlacement[4].w/2, buttonPlacement[4].y, buttonPlacement[4].w, buttonPlacement[4].h, corners[2]);
     fill(buttonPlacement[4].text);
@@ -499,8 +621,7 @@ function spellingGameEndTitle() {
     fill(buttonPlacement[3].text);
     noStroke();
     text("How is your Spelling?", wWidth/2, wHeight * 0.25);
-    text("These are your selected answers, how did you do?", wWidth/2, wHeight * 0.25 + 30);
-    text("Did you find it difficult to get them right?", wWidth/2, wHeight * 0.25 + 60);
+    text("These are your selected answers, how did you do? Did you find it difficult to get them right?", titleCards.x, titleCards.y + titleCards.h*0.2, titleCards.w - titleCards.w*0.125, titleCards.h);;
     text(endTitleTextMinigame3[0], wWidth/2, wHeight/2 - 30);
     text(endTitleTextMinigame3[1], wWidth/2, wHeight/2);
     text(endTitleTextMinigame3[2], wWidth/2, wHeight/2 + 30);

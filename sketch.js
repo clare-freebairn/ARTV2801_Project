@@ -19,7 +19,7 @@ function setup() { // This function is called once at the beginning and never ag
   textFont(euphemiaUCAS)
   createCanvas(windowWidth, windowHeight);
   background(0, 0, 200);
-  frameRate(20);
+  frameRate(150);
   textSize(30)
   textAlign(CENTER);
   setGameLevels();
@@ -27,7 +27,7 @@ function setup() { // This function is called once at the beginning and never ag
   wWidth = windowWidth;
   wHeight = windowHeight;
   corners = [wHeight*0.005, wHeight*0.02, wHeight*0.04];
-  titleCards = {x: wWidth*0.2, y: wHeight*0.2, w: wWidth*0.6, h: wHeight*0.5}
+  titleCards = {x: wWidth*0.2, y: wHeight*0.2, w: wWidth*0.62, h: wHeight*0.5}
   hexagonSetup();
 
 }
@@ -37,7 +37,7 @@ function draw() { // This function is called and loops every frame
   playLevels();
   wWidth = windowWidth;
   wHeight = windowHeight;
-  
+  border();
 
 }
 
