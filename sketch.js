@@ -310,16 +310,19 @@ function mouseClicked() {
   if(distractionGameBooleans.mouseOver2 && distractionGameBooleans.title){
     distractionGameBooleans.question1 = true;
     distractionGameBooleans.endTitle = true;
+    distractionSound.stop();
   }
 
   if(distractionGameBooleans.mouseOver3 && distractionGameBooleans.title){
     distractionGameBooleans.question2 = true;
     distractionGameBooleans.endTitle = true;
+    distractionSound.stop();
   }
 
   if(distractionGameBooleans.mouseOver4 && distractionGameBooleans.title){
     distractionGameBooleans.question3 = true;
     distractionGameBooleans.endTitle = true;
+    distractionSound.stop();
   }
 
   if(distractionGameBooleans.mouseOver1 && !distractionGameBooleans.title){

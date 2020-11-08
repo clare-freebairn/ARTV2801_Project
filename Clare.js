@@ -112,9 +112,7 @@ function distractionHexagons() {
   pop();
 
   distractionGameCalls += 1;
-  if(distractionGameCalls >= 1200){
-      distractionAnswers();
-  }
+  if(distractionGameCalls > 200){distractionSound.onended(distractionAnswers())}
 }
 
 function hexagons(centreWidth, centreHeight) {
@@ -213,8 +211,7 @@ function distractionGameEndTitle() {
     rect(distractionButtons[0].x - distractionButtons[0].w/2, distractionButtons[0].y, distractionButtons[0].w, distractionButtons[0].h, corners[2]);
     fill(distractionButtons[1].text);
     text("Feeling confused?", wWidth*0.5, wHeight*0.25);
-    rectMode(CENTER);
-    text("Some people with dyslexia experience sensory overload and distraction in every day settings. This game, Distraction was a representation of those feelings.",  wWidth*0.5, wHeight*0.5, wWidth*0.25, wHeight*0.25);
+    text("Some people with dyslexia experience sensory overload and distraction in every day settings. This game, Distraction was a representation of those feelings.",  titleCards.x - corners[0]/2, titleCards.y + titleCards.h*0.2, titleCards.w  - titleCards.w*0.125, titleCards.h);
     rectMode(CORNER);
     fill(distractionButtons[0].text);
     text("Next Game", distractionButtons[0].x, distractionButtons[0].y + distractionButtons[0].h/2);
@@ -328,7 +325,7 @@ function border() {
     if (frameCount % 6 == 0) {
         LoremIpsum = LoremIpsumSet
     }
-    if (frameCount % 8 == 0) {
+    if (frameCount % 2 == 0) {
         LoremIpsum = scramble(LoremIpsum);
     }
 
