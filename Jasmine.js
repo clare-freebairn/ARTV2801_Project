@@ -1,7 +1,41 @@
+let c1
+let c2
+let wordSwitch
+var logo
+
+function setupLogo() {
+  c1 = random(100,200);
+  c2 = random(100,200);
+  logo = ["I can't read that", "I cunt read that"];
+  wordSwitch = logo[Math.floor(Math.random() * logo.length)];
+}
+
+function drawLogo() {
+    if(frameCount % 7 == 0){
+      c1 = random(100,200);
+    }
+    if(frameCount % 5 == 0){
+      c2 = random(100,200);
+      wordSwitch = logo[Math.floor(Math.random() * logo.length)]; 
+    }  
+    fill(230, c1, c2);
+    noStroke();
+    circle(wWidth/2 ,wHeight/2 , 400);
+    
+    push()
+    textAlign(CENTER)
+    textStyle(BOLD);
+    fill(255, c2, c1)
+    textSize(45);
+    text(wordSwitch, wWidth/2 ,wHeight/2)
+    pop()
+  }
+
+
 //--------------------------------------Clare Code-------------------------------------------//
 var comprehensionGameBooleans = {playing: false, mouseOver1: false, mouseOver2: false, mouseOver3: false, mouseOver4: false, title: true, answer1: false, answer2: false, answer3: false, endTitle: false};
 var comprehensionColours = [255, 0]//I added this variable where you can store your colours, just makes them easier to use/change
-var comprehensionText = ["A bit about the game"]
+var comprehensionText = ["In this game you will need to read the story in its entirety. Then answer the multiple-choice questions correctly. Many Australians will recognise this as being based off the Naplan tests that had to be done in Grade school. "]
 
 //This function should contain all the function calls that your game recquires to work. 
 //this is called in MiniGame 1, and that is where your game will play from.
@@ -26,6 +60,7 @@ function setComprehensionButtons() {
 
 function drawComprehensionButtons() {
     //Text title 
+    noStroke();
     fill(colour[2]);
     rect(titleCards.x, titleCards.y, titleCards.w, titleCards.h, corners[1])
     
@@ -33,9 +68,9 @@ function drawComprehensionButtons() {
     text("Comprehension Test", wWidth*0.5, wHeight*0.25);
 
     rectMode(CENTER);
-    text(comprehensionText, wWidth*0.5, wHeight*0.5, wWidth*0.3, wHeight*0.25);
+    text(comprehensionText, wWidth*0.5, wHeight*0.45, wWidth*0.3, wHeight*0.3);
     rectMode(CORNER);
-    text("on return, click to continue", wWidth*0.5, wHeight*0.5);
+    
 
     //obligatory click to continue
 

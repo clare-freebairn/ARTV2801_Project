@@ -1,4 +1,4 @@
-var colour = [0, 50, 100, 150, 200, 250];
+
 var corners
 //-------------------------------------MiniGame 4 Distraction Game---------------------------------\\v
 var distractionGameCalls = 0;
@@ -24,7 +24,7 @@ function distractionGame() {
 function distractionGameTitle() {
     push();
     noStroke();
-    fill(colour[2]);
+    fill(colour[6]);
     rect(titleCards.x, titleCards.y, titleCards.w, titleCards.h, corners[1])
     fill(distractionButtons[0].colour);
     rect(distractionButtons[0].x - distractionButtons[0].w/2, distractionButtons[0].y, distractionButtons[0].w, distractionButtons[0].h, corners[2]);
@@ -112,7 +112,7 @@ function distractionHexagons() {
   pop();
 
   distractionGameCalls += 1;
-  if(distractionGameCalls > 200){distractionSound.onended(distractionAnswers())}
+  if(distractionGameCalls > 400){distractionSound.onended(distractionAnswers())}
 }
 
 function hexagons(centreWidth, centreHeight) {
@@ -157,10 +157,10 @@ function distractionAnswers() {
 
 function setDistractionButtons(){
     distractionButtons = [
-        {x: wWidth*0.5, y: wHeight*0.75, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}, 
-        {x: wWidth*0.2 - wWidth*0.25/2, y: wHeight*0.5, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}, 
-        {x: wWidth*0.5 - wWidth*0.25/2, y: wHeight*0.5, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]},
-        {x: wWidth*0.8 - wWidth*0.25/2, y: wHeight*0.5, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}]
+        {x: wWidth*0.5, y: wHeight*0.75, w: wWidth*0.25, h: wHeight*0.125, colour: colour[6], stroke: colour[1], text: colour[3]}, 
+        {x: wWidth*0.2 - wWidth*0.25/2, y: wHeight*0.5, w: wWidth*0.25, h: wHeight*0.125, colour: colour[6], stroke: colour[1], text: colour[3]}, 
+        {x: wWidth*0.5 - wWidth*0.25/2, y: wHeight*0.5, w: wWidth*0.25, h: wHeight*0.125, colour: colour[6], stroke: colour[1], text: colour[3]},
+        {x: wWidth*0.8 - wWidth*0.25/2, y: wHeight*0.5, w: wWidth*0.25, h: wHeight*0.125, colour: colour[6], stroke: colour[1], text: colour[3]}]
 
 }
 
@@ -169,43 +169,43 @@ function distractionMouseOver() {
   var a = mouseX > distractionButtons[0].x - distractionButtons[0].w/2 && mouseX < distractionButtons[0].x - distractionButtons[0].w/2 + distractionButtons[0].w;
   var b = mouseY > distractionButtons[0].y && mouseY < distractionButtons[0].y + distractionButtons[0].h;
   if(a && b && (!distractionGameBooleans.title || distractionGameBooleans.endTitle)){
-    distractionButtons[0].colour = colour[4];
+    distractionButtons[0].colour = colour[3];
     distractionButtons[0].stroke = colour[0];
-    distractionButtons[0].text = colour[2];
+    distractionButtons[0].text = colour[1];
     distractionGameBooleans.mouseOver1 = true;
   } else { distractionGameBooleans.mouseOver1 = false; }
 
   var c = mouseX > distractionButtons[1].x&& mouseX < distractionButtons[1].x + distractionButtons[1].w;
   var d = mouseY > distractionButtons[1].y && mouseY < distractionButtons[1].y + distractionButtons[1].h;
   if(c && d && distractionGameBooleans.title){
-    distractionButtons[1].colour = colour[4];
+    distractionButtons[1].colour = colour[3];
     distractionButtons[1].stroke = colour[0];
-    distractionButtons[1].text = colour[2];
+    distractionButtons[1].text = colour[1];
     distractionGameBooleans.mouseOver2 = true;
   } else { distractionGameBooleans.mouseOver2 = false; }
 
   var e = mouseX > distractionButtons[2].x&& mouseX < distractionButtons[2].x + distractionButtons[2].w;
   var f = mouseY > distractionButtons[2].y && mouseY < distractionButtons[2].y + distractionButtons[2].h;
   if(e && f && distractionGameBooleans.title){
-    distractionButtons[2].colour = colour[4];
+    distractionButtons[2].colour = colour[3];
     distractionButtons[2].stroke = colour[0];
-    distractionButtons[2].text = colour[2];
+    distractionButtons[2].text = colour[1];
     distractionGameBooleans.mouseOver3 = true;
   } else { distractionGameBooleans.mouseOver3 = false; }
 
   var g = mouseX > distractionButtons[3].x&& mouseX < distractionButtons[3].x + distractionButtons[3].w;
   var h = mouseY > distractionButtons[3].y && mouseY < distractionButtons[3].y + distractionButtons[3].h;
   if(g && h && distractionGameBooleans.title){
-    distractionButtons[3].colour = colour[4];
+    distractionButtons[3].colour = colour[3];
     distractionButtons[3].stroke = colour[0];
-    distractionButtons[3].text = colour[2];
+    distractionButtons[3].text = colour[1];
     distractionGameBooleans.mouseOver4 = true;
   } else { distractionGameBooleans.mouseOver4 = false; }
 }
 
 function distractionGameEndTitle() {
     noStroke();
-    fill(colour[2]);
+    fill(colour[6]);
     rect(titleCards.x, titleCards.y, titleCards.w, titleCards.h, corners[1])
     fill(distractionButtons[0].colour);
     rect(distractionButtons[0].x - distractionButtons[0].w/2, distractionButtons[0].y, distractionButtons[0].w, distractionButtons[0].h, corners[2]);
@@ -224,7 +224,7 @@ let shapes;
 let hex;
 
 function colorFromPalette(n) {
-  const palette = ['#fc71ee', '#3f0f6e', '#030a24', '#222152', '#00f7eb'];
+  const palette = ['#E8959E', '#9A4C95', '#0A2239', '#222152', '#2371F7'];
   return palette[n % (palette.length)];
 }
 
@@ -314,11 +314,11 @@ function drawTriangle() {
 //-------------------------------------Border------------------------------------------------------\\
 var LoremIpsum = 'Lorem vero eos et accus a mus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.';
 var LoremIpsumSet = 'Lorem vero eos et accus a mus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.';
-var lawyer = {size: 100, colour: 50, textColour: 200}
-var grow = {size: 200, colour: 150, textColour: 0}
-var right = {size: 200, colour: 150, textColour: 0}
-var bottom = {size: 250, colour: 100, textColour: 255}
-var letter = {size: 250, colour: 50, textColour: 200}
+var lawyer = {size: 100, colour: colour[1], textColour: colour[3]}
+var grow = {size: 200, colour: colour[2], textColour: colour[0]}
+var right = {size: 200, colour: colour[3], textColour: colour[0]}
+var bottom = {size: 250, colour: colour[2], textColour: colour[4]}
+var letter = {size: 250, colour: colour[7], textColour: colour[2]}
 
 
 function border() {
@@ -390,8 +390,13 @@ function border() {
     rotate(PI / 0.65);
     borderSquare(grow);
     pop();
+    //right bottom almost quarter
+    push();
+    translate(windowWidth * 0.25, windowHeight + 80);
+    rotate(PI / 3.0);
+    borderSquare(letter);
+    pop();
 }
-
 
 function borderSquare(shape) {
     push();
@@ -404,8 +409,6 @@ function borderSquare(shape) {
     textSize(10);
     text(LoremIpsum, 0, 0, shape.size, shape.size);
     pop();
-
-
 }
 
 function scramble(words) {
@@ -474,9 +477,9 @@ function spellingGameAfterTitle() {
 function spellingGameTitle() {
     push();
     noStroke();
-    fill(swapColours[0]);
+    fill(colour[0]);
     rect(titleCards.x, titleCards.y, titleCards.w, titleCards.h, corners[1])
-    fill(buttonPlacement[0].text);
+    fill(buttonPlacement[3].text);
     text("Spelling Game", wWidth*0.5, wHeight*0.25);
     text("For each question select the correct answer.", titleCards.x, wHeight*0.4, titleCards.w - corners[2], titleCards.h);
     fill(buttonPlacement[4].colour);
@@ -488,11 +491,11 @@ function spellingGameTitle() {
 
 function setButtons(){
     buttonPlacement = [
-        {x: wWidth*0.25, y: wHeight*0.125, w: wWidth*0.5, h: wHeight*0.25, colour: swapColours[1], stroke: colour[1], text: colour[2]}, 
+        {x: wWidth*0.25, y: wHeight*0.125, w: wWidth*0.5, h: wHeight*0.25, colour: swapColours[1], stroke: colour[1], text: colour[8]}, 
         {x: wWidth*0.125, y: wHeight*0.5, w: wWidth*0.333, h: wHeight*0.125, colour: swapColours[0], stroke: colour[1], text: swapColours[1]}, 
         {x: wWidth*0.52, y: wHeight*0.5, w: wWidth*0.333, h: wHeight*0.125, colour: swapColours[0], stroke: colour[1], text: swapColours[1]},
-        {x: 10, y: 10, w: 10, h: 10, colour: colour[2], stroke: colour[1], text: colour[4]},
-        {x: wWidth*0.5, y: wHeight*0.75, w: wWidth*0.25, h: wHeight*0.125, colour: colour[2], stroke: colour[1], text: colour[4]}]
+        {x: 10, y: 10, w: 10, h: 10, colour: colour[2], stroke: colour[1], text: colour[8]},
+        {x: wWidth*0.5, y: wHeight*0.75, w: wWidth*0.25, h: wHeight*0.125, colour: colour[0], stroke: colour[1], text: colour[7]}]
 }
 
 function mouseIsOverButtons() {
@@ -519,8 +522,8 @@ function mouseIsOverButtons() {
     var e = mouseX > buttonPlacement[4].x - buttonPlacement[4].w / 2 && mouseX < buttonPlacement[4].x - buttonPlacement[4].w / 2 + buttonPlacement[4].w;
     var f = mouseY > buttonPlacement[4].y && mouseY < buttonPlacement[4].y + buttonPlacement[4].h;
     if (e && f && (!spellingGameBooleans.started || spellingGameBooleans.endTitle)) {
-        buttonPlacement[4].colour = colour[4];
-        buttonPlacement[4].text = colour[2];
+        buttonPlacement[4].colour = colour[8];
+        buttonPlacement[4].text = colour[1];
         spellingGameBooleans.mouseOver3 = true;
     } else {
         spellingGameBooleans.mouseOver3 = false;
@@ -613,16 +616,16 @@ function spellingGameEndTitle() {
     spellingGameScoring();
   
     push();
-    fill(swapColours[0]);
+    fill(colour[0]);
     rect(titleCards.x, titleCards.y, titleCards.w, titleCards.h, corners[1])
     fill(buttonPlacement[3].text);
     noStroke();
     text("How is your Spelling?", wWidth/2, wHeight * 0.25);
     text("These are your selected answers, how did you do? Did you find it difficult to get them right?", titleCards.x, titleCards.y + titleCards.h*0.2, titleCards.w - titleCards.w*0.125, titleCards.h);;
-    text(endTitleTextMinigame3[0], wWidth/2, wHeight/2 - 30);
-    text(endTitleTextMinigame3[1], wWidth/2, wHeight/2);
-    text(endTitleTextMinigame3[2], wWidth/2, wHeight/2 + 30);
-    text(endTitleTextMinigame3[3], wWidth/2, wHeight/2 + 60);
+    text(endTitleTextMinigame3[0], wWidth/2, wHeight/2 - 20);
+    text(endTitleTextMinigame3[1], wWidth/2, wHeight/2 + 10);
+    text(endTitleTextMinigame3[2], wWidth/2, wHeight/2 + 40);
+    text(endTitleTextMinigame3[3], wWidth/2, wHeight/2 + 70);
     fill(buttonPlacement[4].colour);
     rect(buttonPlacement[4].x - buttonPlacement[4].w/2, buttonPlacement[4].y, buttonPlacement[4].w, buttonPlacement[4].h, corners[2]);
     fill(buttonPlacement[4].text);

@@ -1,8 +1,10 @@
+//             white       grey       yellow     pink        orange    l blue     navy      purple      pastel blue 
+var colour = ["#FFFCF9", "#DDD5D0", "#FED766", "#E8959E", "#FE5F00", "#2371F7", "#0A2239", "#9A4C95", "#4C75A8"];
 var colours = ["#0A58F5", "#1577E8", "#EB0071", "#F70C63"];
-
-var testColours = ["#05A8AA", "#B8D5B8", "#D7B49E", "#DC602E", "#BC412B", "#2F0A28", "#2E4057"]
-var titleScreenCount = 50;
-var miniGames = [1, 2, 3, 4, 5, 6];
+//                navy                  purple     purple      pastel blue   
+var testColours = ["#0A2239", "#05A8AA", "#9A4C95", "#9A4C95", "#4C75A8"]
+var titleScreenCount = 100;
+var miniGames = [1, 3, 4];
 var levelArray = [];
 var distractionSound
 var titleCards;
@@ -23,6 +25,7 @@ function setup() { // This function is called once at the beginning and never ag
   textSize(30)
   textAlign(CENTER);
   setGameLevels();
+  setupLogo();
 
   wWidth = windowWidth;
   wHeight = windowHeight;
@@ -69,12 +72,8 @@ function setGameLevels() {///In here first and second minigame are set to 3 and 
   // This function takes the array created in the chooseGameLevel function, 
   //and creates an object that can
   // be used to play and record the right levels. 
-  gameLevel = chooseMiniGames();
+  gameLevel = chooseMiniGames(); 
 
-  //remove two lines below after testing, this ensures the first two games are 3 and 4. 
-  gameLevel[0] = 3;
-  gameLevel[1] = 4;
-  gameLevel[2] = 1;
 
   levelArray = [{
     miniGame: gameLevel[0],
@@ -355,7 +354,7 @@ function mouseClicked() {
 
 function titleScreen() {
   background(testColours[0]);
-  text("Sorry, I can't read that", windowWidth/2, windowHeight/2);
+  drawLogo();
 
 
 
