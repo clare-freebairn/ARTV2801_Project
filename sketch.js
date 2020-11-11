@@ -3,7 +3,7 @@ var colour = ["#FFFCF9", "#DDD5D0", "#FED766", "#E8959E", "#FE5F00", "#2371F7", 
 var colours = ["#0A58F5", "#1577E8", "#EB0071", "#F70C63"];
 //                navy                  purple     purple      pastel blue   
 var testColours = ["#0A2239", "#05A8AA", "#9A4C95", "#9A4C95", "#4C75A8"]
-var titleScreenCount = 100;
+var titleScreenCount = 50;
 var miniGames = [1, 3, 4];
 var levelArray = [];
 var distractionSound
@@ -398,7 +398,7 @@ function miniGame6() {
 }
 
 function endScreen() {
-  background(0);
+  background(testColours[0]);
   text("Thanks for playing", wWidth/2, wHeight/2);
 
 }

@@ -1,4 +1,3 @@
-
 var corners
 //-------------------------------------MiniGame 4 Distraction Game---------------------------------\\v
 var distractionGameCalls = 0;
@@ -311,7 +310,7 @@ function drawTriangle() {
     }
     pop();
   }
-//-------------------------------------Border------------------------------------------------------\\
+//-----------------------------------------------------Border---------------------------------------------------------\\
 var LoremIpsum = 'Lorem vero eos et accus a mus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.';
 var LoremIpsumSet = 'Lorem vero eos et accus a mus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.';
 var lawyer = {size: 100, colour: colour[1], textColour: colour[3]}
@@ -481,7 +480,7 @@ function spellingGameTitle() {
     rect(titleCards.x, titleCards.y, titleCards.w, titleCards.h, corners[1])
     fill(buttonPlacement[3].text);
     text("Spelling Game", wWidth*0.5, wHeight*0.25);
-    text("For each question select the correct answer.", titleCards.x, wHeight*0.4, titleCards.w - corners[2], titleCards.h);
+    text("This is a multiple choice spelling test, for each question select the correct answer.", titleCards.x, wHeight*0.4, titleCards.w - corners[2], titleCards.h);
     fill(buttonPlacement[4].colour);
     rect(buttonPlacement[4].x - buttonPlacement[4].w/2, buttonPlacement[4].y, buttonPlacement[4].w, buttonPlacement[4].h, corners[2]);
     fill(buttonPlacement[4].text);
