@@ -399,7 +399,7 @@ function miniGame6() {
 
 function endScreen() {
   background(testColours[0]);
-  text("Thanks for playing", wWidth/2, wHeight/2);
+  text("Thanks for playing, for more information please return to our google site", wWidth/2, wHeight/2, titleCards.w, titleCards.h);
 
 }
 

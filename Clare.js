@@ -109,6 +109,18 @@ function distractionHexagons() {
   push();
   hexagons(wWidth/2 - 400 + 15, wHeight/2 + 500 + 25);
   pop();
+  //Far far top left
+  push();
+  hexagons(wWidth/2 - 900, wHeight/2 - 200 - 25);
+  pop();
+  //Far far middle left
+  push();
+  hexagons(wWidth/2 - 900 - 43, wHeight/2 + 200 - 50);
+  pop();
+  //Far far middle right
+  push();
+  hexagons(wWidth/2 + 900 - 43, wHeight/2 + 200 - 50);
+  pop();
 
   distractionGameCalls += 1;
   if(distractionGameCalls > 400){distractionSound.onended(distractionAnswers())}
